@@ -47,6 +47,7 @@ public class Lesson3 {
 
 
         System.out.println("Array elements before sorting:");
+
         System.out.println( int[]);
 
 
