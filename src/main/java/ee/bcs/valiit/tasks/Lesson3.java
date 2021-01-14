@@ -2,12 +2,14 @@ package ee.bcs.valiit.tasks;
 
 import com.sun.xml.bind.v2.runtime.output.SAXOutput;
 
+import java.util.Arrays;
+
 
 public class Lesson3 {
     public static void main(String[] args) {
 //        System.out.println(sum(new int[]{2, 4, 6, 8, 10, 12, 14}));
 //        System.out.println(factorial(5));
-        System.out.println(sort(new int[]{5, 6, 4, 1, 7, 8, 2, 3}));
+        System.out.println(Arrays.toString(sort(new int[]{5, -6, 9, 12, 7})));
 //        System.out.println(reverseString("Your text here"));
 //        System.out.println(isPrime(7));
     }
@@ -40,34 +42,71 @@ public class Lesson3 {
         return fact;
     }
 
+
+    // otsida välja array käsklused
+
+    // see on bubble sort
+//        int temp = 0;
+//        for (int i = 0; i < a.length; i++) {
+//            for (int j = i + 1; j < a.length; j++) {
+//                if (a[i] > a[j]) {      //swap elements if not in order
+//                    temp = a[i];
+//                    a[i] = a[j];
+//                    a[j] = temp;
+//                }
+//            }
+//        }
+//        //print sorted array
+//        System.out.println("Array sorted in ascending order: ");
+//        for (int i = 0; i < a.length; i++) {
+//            System.out.print(a[i] + " ");
+//        }
+//        return new int[0];
+
+
+    // step by step bubble sort koos Siimuga
+    // 5, -6, 9, 12, 7
+//        for (int j = 0; j < a.length; j++) {
+//            for (int i = 0; i < a.length - 1; i++) {
+//                if (a[i] > a[i + 1]) {
+//                    int tmp = a[i];
+//                    a[i] = a[i + 1];
+//                    a[i + 1] = tmp;
+//                }
+//            }
+//        }
+//        return a;
+
+    // selection sort - kõige lähem sellele,
+    // mis minu peas loogiline tundus
+    // leiab esimese minimaalse ja jätab paika
+    // seejärel võrdleb allejäänud arrayd
+    // ja asetab järgmisele kohale suuruselt järgmise
+
     public static int[] sort(int[] a) {
         // TODO sorteeri massiiv suuruse järgi.
         // TODO kasuta tsükleid, ära kasuta ühtegi olemasolevat sort funktsiooni
-        // otsida välja array käsklused
+        // 5, -6, 9, 12, 7
 
 
-        System.out.println("Array elements before sorting:");
+        int sum = 0;
+        while ( int j <a.length){
+            sum += a[i];
+        }
+        return sum;
 
-        System.out.println( int[]);
 
-
-        int temp = 0;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = i + 1; j < a.length; j++) {
-                if (a[i] > a[j]) {      //swap elements if not in order
-                    temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
+        private static int minIndex ( int[] a, i){
+            for (int i = 1; i < a.length; i++) { // leiab kõige väiksema
+                if (a[i] < a[minIndex]) {
+                    minIndex = i;
                 }
             }
+            return a;
         }
-        //print sorted array
-        System.out.println("Array sorted in ascending order: ");
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + " ");
-        }
-        return new int[0];
+
     }
+
 
     public static String reverseString(String a) {
         // TODO tagasta string tagurpidi
@@ -78,4 +117,5 @@ public class Lesson3 {
         // TODO tagasta kas sisestatud arv on primaar arv (jagub ainult 1 ja iseendaga)
         return false;
     }
+
 }
