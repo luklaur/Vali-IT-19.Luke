@@ -1,12 +1,11 @@
 package ee.bcs.valiit.tasks;
 
-import java.util.Arrays;
-
 
 public class Lesson3 {
     public static void main(String[] args) {
 
-        System.out.println(searchForMax(new int[]{2, 4, 6, 8}));
+//        System.out.println(findLongestName(new String[]{"Jack", "Paul", "Larry", "Mary"}));
+//        System.out.println(searchForMax(new int[]{2, 4, 6, 8}));
 //        System.out.println(searchForMin(new int[]{2, 4, 6, 8}));
 //        System.out.println(average(new double[]{75, 73, 72, 80}));
 //        System.out.println(sum(new int[]{2, 4, 6, 8, 10, 12, 14}));
@@ -16,8 +15,22 @@ public class Lesson3 {
 //        System.out.println(isPrime(7));
     }
 
+    private static String findLongestName(String[] names) {
+        //TODO AUDACITY harjutus
+        //leia massiivist pikim nimi
+        int size = names.length;
+        String longestName = names[0];
+        for (int i = 1; i < size; i++) {
+            // >= tiebreaker
+            if (names[i].length() >= longestName.length()) {
+                longestName = names[i];
+            }
+        }
+        return longestName;
+    }
+
     private static int searchForMax(int[] numbers) {
-// TODO AUDACITY harjutus
+        // TODO AUDACITY harjutus
         // leiab massiivist suurima numbri ja tagastab selle
         int size = numbers.length;
         int max = numbers[0];
