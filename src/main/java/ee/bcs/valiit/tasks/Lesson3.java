@@ -17,12 +17,22 @@ public class Lesson3 {
     }
 
     private static int searchForMax(int[] numbers) {
-
+// TODO AUDACITY harjutus
+        // leiab massiivist suurima numbri ja tagastab selle
+        int size = numbers.length;
+        int max = numbers[0];
+        for (int i = 1; i < size; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+        }
+        return max;
     }
 
     private static int searchForMin(int[] numbers) {
         // TODO AUDACITY harjutus
         // leiab massiivist väikseima numbri ja tagastab selle
+        // ainuke erinevus eelmisega on < märk
         int size = numbers.length;
         int min = numbers[0];
         for (int i = 1; i < size; i++) {
