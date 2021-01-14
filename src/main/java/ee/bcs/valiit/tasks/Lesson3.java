@@ -1,17 +1,29 @@
 package ee.bcs.valiit.tasks;
 
-import com.sun.xml.bind.v2.runtime.output.SAXOutput;
-
 import java.util.Arrays;
 
 
 public class Lesson3 {
     public static void main(String[] args) {
+        System.out.println(average(new double[]{75, 73, 72, 80}));
 //        System.out.println(sum(new int[]{2, 4, 6, 8, 10, 12, 14}));
 //        System.out.println(factorial(5));
-        System.out.println(Arrays.toString(sort(new int[]{5, -6, 9, 12, 7})));
+//        System.out.println(Arrays.toString(sort(new int[]{5, -6, 9, 12, 7})));
 //        System.out.println(reverseString("Your text here"));
 //        System.out.println(isPrime(7));
+    }
+
+    private static double average(double[] numbers) {
+        // TODO Audacity harjutus
+        // arvuta massiivi keskmine
+        // kasuta double, et saada täpne tulemus
+        int size = numbers.length;
+        double total = 0;
+        for (int i = 0; i < size; i++) {
+            total += numbers[i];
+        }
+        double average = total / size;
+        return average;
     }
 
     public static int sum(int[] x) {
@@ -83,33 +95,19 @@ public class Lesson3 {
     // seejärel võrdleb allejäänud arrayd
     // ja asetab järgmisele kohale suuruselt järgmise
 
-    public static int[] sort(int[] a) {
-        // TODO sorteeri massiiv suuruse järgi.
-        // TODO kasuta tsükleid, ära kasuta ühtegi olemasolevat sort funktsiooni
-        // 5, -6, 9, 12, 7
+//    public static int[] sort(int[] a) {
+    // TODO sorteeri massiiv suuruse järgi.
+    // TODO kasuta tsükleid, ära kasuta ühtegi olemasolevat sort funktsiooni
+    // 5, -6, 9, 12, 7
 
-
-        int sum = 0;
-        while ( int j <a.length){
-            sum += a[i];
-        }
-        return sum;
-
-
-        private static int minIndex ( int[] a, i){
-            for (int i = 1; i < a.length; i++) { // leiab kõige väiksema
-                if (a[i] < a[minIndex]) {
-                    minIndex = i;
-                }
-            }
-            return a;
-        }
-
-    }
+//        return "";
+//    }
 
 
     public static String reverseString(String a) {
         // TODO tagasta string tagurpidi
+
+
         return "";
     }
 
@@ -117,5 +115,6 @@ public class Lesson3 {
         // TODO tagasta kas sisestatud arv on primaar arv (jagub ainult 1 ja iseendaga)
         return false;
     }
+
 
 }
