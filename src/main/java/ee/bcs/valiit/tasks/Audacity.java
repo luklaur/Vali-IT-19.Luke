@@ -6,17 +6,15 @@ public class Audacity {
 
     public static void main(String[] args) {
 
-        System.out.println(playNumbersGame());
+//        System.out.println(playNumbersGame());
 //        System.out.println(findLongestName(new String[]{"Jack", "Paul", "Larry", "Mary"}));
 //        System.out.println(searchForMax(new int[]{2, 4, 6, 8}));
 //        System.out.println(searchForMin(new int[]{2, 4, 6, 8}));
 //        System.out.println(average(new double[]{75, 73, 72, 80}));
-
-
     }
 
     private static int playNumbersGame() {
-
+        // We want the numbers, Mason!
 
         int randomNumber = (int) (Math.random() * 100) + 1;
         boolean hasWon = false;
@@ -55,7 +53,6 @@ public class Audacity {
     }
 
     private static String findLongestName(String[] names) {
-        //TODO AUDACITY harjutus
         //leia massiivist pikim nimi
         int size = names.length;
         String longestName = names[0];
@@ -69,7 +66,6 @@ public class Audacity {
     }
 
     private static int searchForMax(int[] numbers) {
-        // TODO AUDACITY harjutus
         // leiab massiivist suurima numbri ja tagastab selle
         // ainuke erinevus miniga on > märk
         int size = numbers.length;
@@ -83,7 +79,6 @@ public class Audacity {
     }
 
     private static int searchForMin(int[] numbers) {
-        // TODO AUDACITY harjutus
         // leiab massiivist väikseima numbri ja tagastab selle
         // ainuke erinevus maxiga on < märk
         int size = numbers.length;
@@ -97,7 +92,6 @@ public class Audacity {
     }
 
     private static double average(double[] numbers) {
-        // TODO AUDACITY harjutus
         // arvuta massiivi keskmine
         // kasuta double, et saada täpne tulemus
         int size = numbers.length;
@@ -111,6 +105,4 @@ public class Audacity {
         double average = total / size;
         return average;
     }
-
-
 }

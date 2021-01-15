@@ -1,8 +1,5 @@
 package ee.bcs.valiit.tasks;
 
-
-import java.util.Scanner;
-
 public class Lesson3 {
     public static void main(String[] args) {
 
@@ -11,7 +8,6 @@ public class Lesson3 {
 //        System.out.println(Arrays.toString(sort(new int[]{5, -6, 9, 12, 7})));
 //        System.out.println(reverseString("Your text here"));
 //        System.out.println(isPrime(7));
-
     }
 
     public static int sum(int[] x) {
@@ -25,7 +21,6 @@ public class Lesson3 {
             add += x[i];
         }
         return add;
-
     }
 
     public static int factorial(int x) {
@@ -41,9 +36,6 @@ public class Lesson3 {
         }
         return fact;
     }
-
-
-    // otsida välja array käsklused
 
     // see on bubble sort
 //        int temp = 0;
@@ -83,18 +75,17 @@ public class Lesson3 {
     // seejärel võrdleb allejäänud arrayd
     // ja asetab järgmisele kohale suuruselt järgmise
 
-//    public static int[] sort(int[] a) {
+    public static int sort(int[] a) {
     // TODO sorteeri massiiv suuruse järgi.
     // TODO kasuta tsükleid, ära kasuta ühtegi olemasolevat sort funktsiooni
     // 5, -6, 9, 12, 7
 
-//        return "";
-//    }
+        return 0;
+    }
 
 
     public static String reverseString(String a) {
         // TODO tagasta string tagurpidi
-
 
         return "";
     }
@@ -103,7 +94,5 @@ public class Lesson3 {
         // TODO tagasta kas sisestatud arv on primaar arv (jagub ainult 1 ja iseendaga)
         return false;
     }
-
-
 }
 
