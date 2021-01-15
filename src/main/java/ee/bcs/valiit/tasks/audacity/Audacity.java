@@ -1,8 +1,11 @@
-package ee.bcs.valiit.tasks;
+package ee.bcs.valiit.tasks.audacity;
 
 import java.util.Scanner;
 
 public class Audacity {
+
+    // Siin klassis ma hoian numbrimängu
+    // ja koodijuppe, millest võib tulevikus kasu olla.
 
     public static void main(String[] args) {
 

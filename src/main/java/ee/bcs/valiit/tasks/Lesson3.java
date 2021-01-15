@@ -6,8 +6,8 @@ public class Lesson3 {
 //        System.out.println(sum(new int[]{2, 4, 6, 8, 10, 12, 14}));
 //        System.out.println(factorial(5));
 //        System.out.println(Arrays.toString(sort(new int[]{5, -6, 9, 12, 7})));
-//        System.out.println(reverseString("Your text here"));
-        System.out.println(isPrime(17));
+        System.out.println(reverseString("Your text here"));
+//        System.out.println(isPrime(17));
     }
 
     public static int sum(int[] x) {
@@ -75,10 +75,11 @@ public class Lesson3 {
     // seejärel võrdleb allejäänud arrayd
     // ja asetab järgmisele kohale suuruselt järgmise
 
-    public static int sort(int[] a) {
+    public static int sort(int[] massiiv) {
         // TODO sorteeri massiiv suuruse järgi.
         // TODO kasuta tsükleid, ära kasuta ühtegi olemasolevat sort funktsiooni
         // 5, -6, 9, 12, 7
+
 
         return 0;
     }
@@ -87,7 +88,12 @@ public class Lesson3 {
     public static String reverseString(String sõnad) {
         // TODO tagasta string tagurpidi
 
+        int stringiPikkus = sõnad.length();
 
+        for (int i = stringiPikkus; i >= 0; i--){
+
+
+        }
         return "";
     }
 
