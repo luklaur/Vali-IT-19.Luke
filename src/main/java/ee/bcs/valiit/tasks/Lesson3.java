@@ -25,7 +25,7 @@ public class Lesson3 {
     }
 
     public static String reverseString(String a) {
-        // TODO tagasta string tagurpidi
+        // TODO tagasta string tagurpidi asd
         return "";
     }
 
