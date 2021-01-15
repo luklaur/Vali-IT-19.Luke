@@ -7,7 +7,7 @@ public class Lesson3 {
 //        System.out.println(factorial(5));
 //        System.out.println(Arrays.toString(sort(new int[]{5, -6, 9, 12, 7})));
 //        System.out.println(reverseString("Your text here"));
-        System.out.println(isPrime(14));
+        System.out.println(isPrime(17));
     }
 
     public static int sum(int[] x) {
@@ -95,6 +95,10 @@ public class Lesson3 {
         // TODO tagasta kas sisestatud arv on primaar arv (jagub ainult 1 ja iseendaga)
 
         // viimane variant, millest aru ka saan. toimib.
+        if (number == 1) {
+            System.out.println("1 ei ole algarv because of reasons.");
+            return false;
+        }
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 System.out.println(number + " ei ole algarv.");
