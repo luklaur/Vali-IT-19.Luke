@@ -141,6 +141,7 @@ public class Lesson2 {
     }
 
 }
+
 // see osa oli mul pm õige, aga liiga keeruliselt kirjutatud
 //        // loop counter
 //        int countI = 1;
