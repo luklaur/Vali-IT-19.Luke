@@ -94,20 +94,73 @@ public class Lesson3 {
     public static boolean isPrime(int number) {
         // TODO tagasta kas sisestatud arv on primaar arv (jagub ainult 1 ja iseendaga)
 
-        System.out.println("Sisestatud arv on " + number);
+        // viimane variant, millest aru ka saan. toimib.
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                System.out.println(number + " ei ole algarv.");
+                return false;
+            }
 
-        int a = number % 1; // kui jagub täpselt on jääk 0, else jääk > 0
-        int b = number % number; // kui jagub täpselt on jääk 0, else jääk > 0
-        System.out.println("number/1 = " + a);
-        System.out.println("number/number " + b);
-
-        if (a == 0 && b == 0) {
-            System.out.println("See on primaararv.");
-            return true;
-        } else {
-            System.out.println("See ei ole primaararv.");
-            return false;
         }
+        System.out.println(number + " on algarv.");
+        return true;
+
     }
 }
+
+// esialgne omalooming... ei toimi...
+
+//        System.out.println("Sisestatud arv on " + number);
+//
+//        int a = number % 1; // kui jagub täpselt on jääk 0, else jääk > 0
+//        int b = number % number; // kui jagub täpselt on jääk 0, else jääk > 0
+//        System.out.println("number/1 = " + a);
+//        System.out.println("number/number " + b);
+//
+//        if (a == 0 && b == 0) {
+//            System.out.println("See on primaararv.");
+//            return true;
+//        } else {
+//            System.out.println("See ei ole primaararv.");
+//            return false;
+//        }
+
+// TODO TRIAL DIVISION - ruutjuurega on mõeldud selleks,
+// TODO et algoritmi efektiivsemaks teha.
+// Täisarvu a teguriks ehk jagajaks nimetatakse
+// matemaatikas iga täisarvu, mis jagub arvuga a
+// Algarv on arv, mis jagub täpselt ainult 1 ja iseendaga
+
+// netist võetud ja ülearu keeruline + ei toimi
+
+//        System.out.println("Etteantud arv on " + number);
+//        // number millega jagama hakkab
+//        int i = 2;
+//        // ruutjuur etteantud numbrist
+//        // castib intiks, sest muidu on double
+////        int rtJrNumbrist = (int) Math.ceil(Math.sqrt(number));
+//        // while loop lõppeb
+//        // kui i <= rtJrNumbrist
+//        while (i < number) {
+//            // increment i, et järgmisel ringil
+//            // järgmist numbrit kontrollida
+//            i++;
+//            // EHK: kui ükski numbritest, mis jääb
+//            // 2 ja numbri vahel leidub etteantud numbri tegur
+//            // SIIS see number ei ole primaararv, sest ta jagub
+//            // ka millegi muu kui 1 ja iseendaga...
+//            if (number % i == 0) {
+//                // false - ei ole prime
+//                return false;
+//            }
+//        }
+//        // If none of the numbers is a factor,
+//        // then it is a prime number
+//        // kui ükski numbritest 2 ja rtJrNumbri vahel
+//        // EI leidu ühtki tegurit SIIS etteantud number
+//        // ON primaararv, sest järelikult ta jagub
+//        // AINULT 1 ja iseendaga!
+//        return true;
+//    }
+
 
