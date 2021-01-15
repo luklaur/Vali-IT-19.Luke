@@ -3,10 +3,10 @@ package ee.bcs.valiit.tasks;
 public class Lesson1 {
 
     public static void main(String[] args) {
-        excersie1();
-        excersie2();
-        excersie3();
-        excersie4();
+//        excersie1();
+//        excersie2();
+//        excersie3();
+//        excersie4();
     }
 
     // TODO
@@ -69,15 +69,15 @@ System.out.println(y); // outputs 6 sest siin real on uus väärtus juba omistat
     // d = 21 % 3
     // Prindi välja kõigi muutujate väärtused
     public static void excersie3() {
-//        int a = 18 % 3; // 18/3=6 jagub kolmega täpselt, jääk 0
-//        int b = 19 % 3; // 19/3=6.3(3), ei jagu täpselt, jääk 1
-//        int c = 20 % 3; // 20/3=6.6(7), ei jagu täpselt, jääk 2
-//        int d = 21 % 3; // 21/3=7 jagub täpselt, jääk 0
-//        System.out.println("a = " + a);
-//        System.out.println("b = " + b);
-//        System.out.println("c = " + c);
-//        System.out.println("d = " + d);
-//        System.out.println(a + " " + b + " " + c + " " + d);
+        int a = 18 % 3; // 18/3=6 jagub kolmega täpselt, jääk 0
+        int b = 19 % 3; // 19/3=6.3(3), ei jagu täpselt, jääk 1
+        int c = 20 % 3; // 20/3=6.6(7), ei jagu täpselt, jääk 2
+        int d = 21 % 3; // 21/3=7 jagub täpselt, jääk 0
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+        System.out.println("c = " + c);
+        System.out.println("d = " + d);
+        System.out.println(a + " " + b + " " + c + " " + d);
 
     }
 
@@ -86,13 +86,12 @@ System.out.println(y); // outputs 6 sest siin real on uus väärtus juba omistat
     // Trüki muutuja sisu välja
     public static void excersie4() {
 
-//        String kribuKrabu = "\"\\\"\\\\\"\"";
-        // miks "\"\\"" copy-pastega stringis teistmoodi välja näeb?
-        // jutumärgid tuleb varjestada \ kaldkriipsuga, nimet escapeimiseks
-        // String name = "\"Siim\"";
-        // \n on uus rida
-//        System.out.println(kribuKrabu);
+        String kribuKrabu = "\"\\\"\\\\\"\"";
+//         miks "\"\\"" copy-pastega stringis teistmoodi välja näeb?
+//         jutumärgid tuleb varjestada \ kaldkriipsuga, nimet escapeimiseks
+         String name = "\"Siim\"";
+//         \n on uus rida
+        System.out.println(kribuKrabu);
 
     }
-
 }

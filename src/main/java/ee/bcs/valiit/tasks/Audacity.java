@@ -6,7 +6,7 @@ public class Audacity {
 
     public static void main(String[] args) {
 
-//        System.out.println(playNumbersGame());
+        System.out.println(playNumbersGame());
 //        System.out.println(findLongestName(new String[]{"Jack", "Paul", "Larry", "Mary"}));
 //        System.out.println(searchForMax(new int[]{2, 4, 6, 8}));
 //        System.out.println(searchForMin(new int[]{2, 4, 6, 8}));
@@ -14,7 +14,7 @@ public class Audacity {
     }
 
     private static int playNumbersGame() {
-        // We want the numbers, Mason!
+        // What's the numbers, Mason?
 
         int randomNumber = (int) (Math.random() * 100) + 1;
         boolean hasWon = false;

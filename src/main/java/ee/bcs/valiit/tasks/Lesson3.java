@@ -7,7 +7,7 @@ public class Lesson3 {
 //        System.out.println(factorial(5));
 //        System.out.println(Arrays.toString(sort(new int[]{5, -6, 9, 12, 7})));
 //        System.out.println(reverseString("Your text here"));
-//        System.out.println(isPrime(7));
+        System.out.println(isPrime(14));
     }
 
     public static int sum(int[] x) {
@@ -76,23 +76,38 @@ public class Lesson3 {
     // ja asetab järgmisele kohale suuruselt järgmise
 
     public static int sort(int[] a) {
-    // TODO sorteeri massiiv suuruse järgi.
-    // TODO kasuta tsükleid, ära kasuta ühtegi olemasolevat sort funktsiooni
-    // 5, -6, 9, 12, 7
+        // TODO sorteeri massiiv suuruse järgi.
+        // TODO kasuta tsükleid, ära kasuta ühtegi olemasolevat sort funktsiooni
+        // 5, -6, 9, 12, 7
 
         return 0;
     }
 
 
-    public static String reverseString(String a) {
+    public static String reverseString(String sõnad) {
         // TODO tagasta string tagurpidi
+
 
         return "";
     }
 
-    public static boolean isPrime(int x) {
+    public static boolean isPrime(int number) {
         // TODO tagasta kas sisestatud arv on primaar arv (jagub ainult 1 ja iseendaga)
-        return false;
+
+        System.out.println("Sisestatud arv on " + number);
+
+        int a = number % 1; // kui jagub täpselt on jääk 0, else jääk > 0
+        int b = number % number; // kui jagub täpselt on jääk 0, else jääk > 0
+        System.out.println("number/1 = " + a);
+        System.out.println("number/number " + b);
+
+        if (a == 0 && b == 0) {
+            System.out.println("See on primaararv.");
+            return true;
+        } else {
+            System.out.println("See ei ole primaararv.");
+            return false;
+        }
     }
 }
 

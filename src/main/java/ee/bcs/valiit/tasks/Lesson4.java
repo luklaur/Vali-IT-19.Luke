@@ -18,6 +18,7 @@ public class Lesson4 {
             // TODO 1
             // Add command: "createAccount ${accountNr}"
             // this has to store accountNr with 0 balance
+            // teeb hash mapi uue konto ja paneb sellele väärtuse 0
             // TODO 2
             // Add command: "getBalance ${accountNr}"
             // this has to display account balance of specific acount
@@ -35,6 +36,9 @@ public class Lesson4 {
             // This has to remove specified amount from fromAccount and add it to toAccount
             // Your application needs to check that toAccount is positive
             // And from account has enough money to do that transaction
+            // TODO lisaülesanne - valideeri sisend
+            // nt kui sisend on depositMoney EE12 siis tuleb viga
+            // throw ja catch
             else {
                 System.out.println("Unknown command");
             }
