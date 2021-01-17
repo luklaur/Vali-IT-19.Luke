@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Audacity {
 
+    String acctNumber;
+    double balance;
+
     public static void main(String[] args) {
 
         /*Calculator*/
@@ -15,14 +18,14 @@ public class Audacity {
         /*Person näide*/
         person();
 
-        /*NumbersGame*/
-        System.out.println(NumbersGame.playNumbersGame());
-
         /*Massiivi näited*/
         System.out.println(Massiiv.findLongestName(new String[]{"Jack", "Paul", "Larry", "Mary"}));
         System.out.println(Massiiv.searchForMax(new int[]{2, 4, 6, 8}));
         System.out.println(Massiiv.searchForMin(new int[]{2, 4, 6, 8}));
         System.out.println(Massiiv.average(new double[]{75, 73, 72, 80}));
+
+        /*NumbersGame*/
+        System.out.println(NumbersGame.playNumbersGame());
     }
 
     private static void person() {
