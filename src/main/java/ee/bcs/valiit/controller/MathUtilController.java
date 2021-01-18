@@ -20,13 +20,13 @@ public class MathUtilController {
     }
 
     // http://localhost:8080/tasks/maxOf2/5/6
-    @GetMapping("maxOf2{a}/{b}")
+    @GetMapping("maxOf2/{a}/{b}")
     public int maxOf2(@PathVariable("a") int aVariable, @PathVariable("b") int bVariable) {
         return Lesson1MathUtil.maxOf2(aVariable, bVariable);
     }
 
     // http://localhost:8080/tasks/maxOf3/5/6/7
-    @GetMapping("maxOf3{a}/{b}/{c}")
+    @GetMapping("maxOf3/{a}/{b}/{c}")
     public int maxOf3(@PathVariable("a") int aVariable, @PathVariable("b") int bVariable, @PathVariable("c") int cVariable) {
         return Lesson1MathUtil.maxOf3(aVariable, bVariable, cVariable);
     }
