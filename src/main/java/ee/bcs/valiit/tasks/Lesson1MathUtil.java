@@ -12,18 +12,18 @@ public class Lesson1MathUtil {
         // selleks, et programm tööle läheks
         // peab main methodis midagi kirjas olema!
 
-//        System.out.println(min(7, 8));
-//        System.out.println(min(3, 5));
-//        System.out.println(max(7, 8));
-//        System.out.println(max(3, 5));
+//        System.out.println(minOf2(7, 8));
+//        System.out.println(minOf2(3, 5));
+//        System.out.println(maxOf2(7, 8));
+//        System.out.println(maxOf2(3, 5));
 //        System.out.println(abs(-8));
-        System.out.println(min(4, 4, 5));
-        System.out.println(max(5, 5, 4));
+//        System.out.println(minOf3(4, 4, 5));
+//        System.out.println(maxOf3(5, 5, 4));
 
     }
 
     // TODO tagasta a ja b väikseim väärtus
-    public static int min(int a, int b) {
+    public static int minOf2(int a, int b) {
 
         if (a < b) {
             return a;
@@ -34,7 +34,7 @@ public class Lesson1MathUtil {
 
 
     // TODO tagasta a ja b suurim väärtus
-    public static int max(int a, int b) {
+    public static int maxOf2(int a, int b) {
 
         if (a > b) {
             return a;
@@ -65,7 +65,7 @@ public class Lesson1MathUtil {
     }
 
     // TODO tagasta kolmest arvust kõige väiksem
-    public static int min(int a, int b, int c) {
+    public static int minOf3(int a, int b, int c) {
 
         // võrdsed numbrid <= / >=
         if (a <= b && a <= c) {
@@ -78,7 +78,7 @@ public class Lesson1MathUtil {
     }
 
     // TODO tagasta kolmest arvust kõige suurem
-    public static int max(int a, int b, int c) {
+    public static int maxOf3(int a, int b, int c) {
         if (a >= b && a >= c) {
             return a;
         } else if (b >= a && b >= c) {

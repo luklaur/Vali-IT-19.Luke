@@ -10,7 +10,8 @@ public class Lesson2 {
 //        exercise2(5);
 //        exercise3(3, 3);
 //        exercise4(20);
-        System.out.println(exercise5(1, 10));
+//        exercise5(3,3)
+//        System.out.println(exercise5(1, 10));
 
     }
 
@@ -139,6 +140,7 @@ public class Lesson2 {
         }
         return count; // annab väärtuse muutujaLenght'le
     }
+
 
 }
 
