@@ -12,4 +12,9 @@ public class Lesson3HardController {
     public int evenFibonacci(@RequestParam("x") int x) {
         return Lesson3Hard.evenFibonacci(x);
     }
+    // http://localhost:8080/tasks/morseCode/sos
+    @GetMapping("morseCode/{text}")
+    public String morseCode(@PathVariable("text") String text) {
+        return Lesson3Hard.morseCode(text);
+    }
 }
