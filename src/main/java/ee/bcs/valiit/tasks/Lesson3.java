@@ -99,13 +99,12 @@ public class Lesson3 {
     public static String reverseString(String sõnad) {
         // TODO tagasta string tagurpidi
 
-        int stringiPikkus = sõnad.length();
-
-        for (int i = stringiPikkus; i >= 0; i--) {
-
-
+        String tagurpidi = "";
+        for (int i = sõnad.length() - 1; i >= 0; i--) {
+            tagurpidi += sõnad.substring(i, i + 1);
         }
-        return "";
+        return tagurpidi;
+
     }
 
     public static boolean isPrime(int number) {
