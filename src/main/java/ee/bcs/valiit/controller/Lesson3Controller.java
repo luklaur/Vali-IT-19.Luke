@@ -32,4 +32,9 @@ public class Lesson3Controller {
         return Lesson3.reverseString(sõnad);
     }
 
+    // http://localhost:8080/tasks/isPrime/5
+    @GetMapping("isPrime/{number}")
+    public boolean isPrime(@PathVariable("number") int number) {
+        return Lesson3.isPrime(number);
+    }
 }
