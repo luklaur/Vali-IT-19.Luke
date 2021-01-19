@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Lesson3Hard {
     public static void main(String[] args) {
 
-        System.out.println(playNumbersGame());
+//        System.out.println(playNumbersGame());
     }
 
     private static int playNumbersGame() {
