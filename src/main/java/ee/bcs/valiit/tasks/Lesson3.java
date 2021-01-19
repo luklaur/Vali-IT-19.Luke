@@ -1,6 +1,7 @@
 package ee.bcs.valiit.tasks;
 
 public class Lesson3 {
+
     public static void main(String[] args) {
 
 //        System.out.println(sum(new int[]{2, 4, 6, 8, 10, 12, 14}));

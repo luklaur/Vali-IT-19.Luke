@@ -11,8 +11,7 @@ public class Lesson2Controller {
 
     // http://localhost:8080/tasks/test/lauri
     @GetMapping("test/{name}")
-    public String getUserName(@PathVariable("name")
-                                      String userName) {
+    public String getUserName(@PathVariable("name") String userName) {
         return "Hello world! " + userName;
     }
 

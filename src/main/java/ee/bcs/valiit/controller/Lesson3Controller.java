@@ -26,6 +26,10 @@ public class Lesson3Controller {
         return Lesson3.sort(array);
     }
 
-
+    // http://localhost:8080/tasks/reverseString/tere
+    @GetMapping("reverseString/{sõnad}")
+    public String reverseString(@PathVariable("sõnad") String sõnad) {
+        return Lesson3.reverseString(sõnad);
+    }
 
 }
