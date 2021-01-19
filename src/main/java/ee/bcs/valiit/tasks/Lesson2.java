@@ -6,8 +6,8 @@ public class Lesson2 {
 
     public static void main(String[] args) {
         // TODO siia saab kirjutada koodi testimiseks
-        System.out.println(Arrays.toString(exercise1(new int[]{1, 2, 3, 4, 5, 6, 7})));
-        System.out.println(exercise2(7));
+//        System.out.println(Arrays.toString(exercise1(new int[]{1, 2, 3, 4, 5, 6, 7})));
+//        System.out.println(exercise2(7));
 //        exercise1();
 //        exercise2(5);
 //        exercise3(3, 3);

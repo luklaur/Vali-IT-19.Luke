@@ -16,11 +16,19 @@ public class Lesson2Controller {
         return "Hello world! " + userName;
     }
 
+    // http://localhost:8080/tasks/exercise1?array=10,9,8,7,6,5,4
+    @GetMapping("exercise1")
+    public int[] exercise1(@RequestParam("array") int [] array) {
+        return Lesson2.exercise1(array);
+    }
+
     // http://localhost:8080/tasks/exercise2?x=5
     @GetMapping("exercise2")
     public List<Integer> exercise2(@RequestParam("x") int x) {
         return Lesson2.exercise2(x);
     }
+
+
 
     // http://localhost:8080/tasks/exercise4/5
     @GetMapping("exercise4/{b}")
