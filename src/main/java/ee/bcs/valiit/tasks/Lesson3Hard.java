@@ -1,12 +1,15 @@
 package ee.bcs.valiit.tasks;
 
+import java.util.HashMap;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Lesson3Hard {
     public static void main(String[] args) {
 
 //        System.out.println(playNumbersGame());
-        System.out.println("Sum is " + evenFibonacci(10));
+//        System.out.println("Sum is " + evenFibonacci(10));
+        System.out.println(morseCode("SOS"));
     }
 
     private static int playNumbersGame() {
@@ -57,7 +60,6 @@ public class Lesson3Hard {
     public static int evenFibonacci(int x) {
         // TODO liida kokku kõik paaris fibonacci arvud kuni numbrini x
 
-//        for (int j = 0; j <= x; j++) {
 
         int total = 0;
         int a = 0;
@@ -83,38 +85,45 @@ public class Lesson3Hard {
         // Kasuta sümboleid . ja -
         // tekitada morse tõlk
 
-//        HashMap<String, String> pattern = new HashMap<>();
-//        pattern.put("a", ".-");
-//        pattern.put("b", "-...");
-//        pattern.put("c", "-.-.");
-//        pattern.put("d", "-..");
-//        pattern.put("e", ".");
-//        pattern.put("f", "..-.");
-//        pattern.put("g", "--.");
-//        pattern.put("h", "....");
-//        pattern.put("i", "..");
-//        pattern.put("j", ".---");
-//        pattern.put("k", "-.-");
-//        pattern.put("l", ".-..");
-//        pattern.put("m", "--");
-//        pattern.put("n", "-.");
-//        pattern.put("o", "---");
-//        pattern.put("p", ".--.");
-//        pattern.put("q", "--.-");
-//        pattern.put("r", ".-.");
-//        pattern.put("s", "...");
-//        pattern.put("t", "-");
-//        pattern.put("u", "..-");
-//        pattern.put("v", "...-");
-//        pattern.put("w", ".--");
-//        pattern.put("x", "-..-");
-//        pattern.put("y", "-.--");
-//        pattern.put("z", "--..");
-//        pattern.put(" ", " ");
-//
+        String textToLow = text.toLowerCase(Locale.ROOT);
+        StringBuilder morse = new StringBuilder();
+        HashMap<String, String> map = new HashMap<>();
 
-//    }
-        return "";
+        map.put("a", ".-");
+        map.put("b", "-...");
+        map.put("c", "-.-.");
+        map.put("d", "-..");
+        map.put("e", ".");
+        map.put("f", "..-.");
+        map.put("g", "--.");
+        map.put("h", "....");
+        map.put("i", "..");
+        map.put("j", ".---");
+        map.put("k", "-.-");
+        map.put("l", ".-..");
+        map.put("m", "--");
+        map.put("n", "-.");
+        map.put("o", "---");
+        map.put("p", ".--.");
+        map.put("q", "--.-");
+        map.put("r", ".-.");
+        map.put("s", "...");
+        map.put("t", "-");
+        map.put("u", "..-");
+        map.put("v", "...-");
+        map.put("w", ".--");
+        map.put("x", "-..-");
+        map.put("y", "-.--");
+        map.put("z", "--..");
+        map.put(" ", " ");
+
+        String translation = "";
+        for (int i = 0; i < text.length(); i++) {
+            // mis see substring loogika siin on???
+            String key = textToLow.substring(i, i + 1);
+            translation += map.get(key) + " ";
+        }
+        return translation;
     }
 
 }
