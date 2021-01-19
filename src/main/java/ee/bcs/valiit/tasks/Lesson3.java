@@ -10,7 +10,7 @@ public class Lesson3 {
 //        System.out.println(isPrime(17));
     }
 
-    public static int sum(int[] x) {
+    public static int sumOfArray(int[] x) {
         // Todo liida kokku kõik numbrid massivis x
 
         int add = 0;
