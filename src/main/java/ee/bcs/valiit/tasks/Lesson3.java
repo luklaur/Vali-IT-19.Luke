@@ -75,13 +75,24 @@ public class Lesson3 {
     // seejärel võrdleb allejäänud arrayd
     // ja asetab järgmisele kohale suuruselt järgmise
 
-    public static int sort(int[] massiiv) {
+    public static int[] sort(int[] array) {
         // TODO sorteeri massiiv suuruse järgi.
         // TODO kasuta tsükleid, ära kasuta ühtegi olemasolevat sort funktsiooni
         // 5, -6, 9, 12, 7
 
 
-        return 0;
+        for (int j = 0; j < array.length - 1; j++) {
+            int minIndex = j;
+            for (int i = j + 1; i < array.length; i++) {
+                if (array[i] < array[minIndex]) {
+                    minIndex = i;
+                }
+            }
+            int tmp = array[j];
+            array[j] = array[minIndex];
+            array[minIndex] = tmp;
+        }
+        return array;
     }
 
 
@@ -90,7 +101,7 @@ public class Lesson3 {
 
         int stringiPikkus = sõnad.length();
 
-        for (int i = stringiPikkus; i >= 0; i--){
+        for (int i = stringiPikkus; i >= 0; i--) {
 
 
         }

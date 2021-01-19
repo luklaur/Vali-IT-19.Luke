@@ -19,4 +19,10 @@ public class Lesson3Controller {
     public int factorial(@PathVariable("x") int xVariable) {
         return Lesson3.factorial(xVariable);
     }
+
+    // http://localhost:8080/tasks/sort?array=27,58,65,14,8,7,6,4
+    @GetMapping("sort")
+    public int[] sort(@RequestParam("array") int[] array) {
+        return Lesson3.sort(array);
+    }
 }
