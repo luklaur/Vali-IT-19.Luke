@@ -1,10 +1,8 @@
 package ee.bcs.valiit.controller;
 
+import ee.bcs.valiit.tasks.Lesson2;
 import ee.bcs.valiit.tasks.Lesson3;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("tasks")
 @RestController
@@ -14,5 +12,11 @@ public class Lesson3Controller {
     @GetMapping("sumOfArray")
     public int sumOfArray(@RequestParam("array") int[] x) {
         return Lesson3.sumOfArray(x);
+    }
+
+    // http://localhost:8080/tasks/factorial/5
+    @GetMapping("factorial/{x}")
+    public int factorial(@PathVariable("x") int xVariable) {
+        return Lesson3.factorial(xVariable);
     }
 }
