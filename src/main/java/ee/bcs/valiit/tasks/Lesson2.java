@@ -6,6 +6,8 @@ public class Lesson2 {
 
     public static void main(String[] args) {
         // TODO siia saab kirjutada koodi testimiseks
+        System.out.println(Arrays.toString(exercise1(new int[]{1, 2, 3, 4, 5, 6, 7})));
+        System.out.println(exercise2(7));
 //        exercise1();
 //        exercise2(5);
 //        exercise3(3, 3);
@@ -18,7 +20,14 @@ public class Lesson2 {
     // TODO loo 10 elemendile täisarvude massiv (massiiv on array)
     // TODO loe sisse konsoolist 10 täisarvu (kasuta scannerit)
     // TODO trüki arvud välja vastupidises järiekorras
-    public static void exercise1() {
+    public static int[] exercise1(int[] array) {
+        int[] numbers = new int[array.length];
+        for (int i = array.length - 1; i > 0; i--) {
+            numbers[array.length - 1 - i] = array[i];
+        }
+        return numbers;
+    }
+     /* public static void exercise1() {
         Scanner scanner = new Scanner(System.in);
         // initialize array, 10 kohta (0-9)
         int[] täisarvud = new int[10];
@@ -35,15 +44,14 @@ public class Lesson2 {
         System.out.println("Numbrid tagurpidi on:");
         for (int i = 9; i >= 0; i--) {
             System.out.print(täisarvud[i] + " ");
-        }
+        }*/
 
-    }
 
     // TODO prindi välja x esimest paaris arvu
     // Näide:
     // Sisend 5
     // Väljund 2 4 6 8 10
-    public static void exercise2(int x) {
+    /*public static void exercise2(int x) {
         // alusta 1st;
         // jätka kuni i<=x*2, sest i<=x toob välja ainult 4 paarisarvu
         // sest kui i<=x siis x väärtus läheb enne suuremaks
@@ -57,7 +65,18 @@ public class Lesson2 {
                 System.out.print(i + " ");
             }
         }
+    }*/
+
+    public static List<Integer> exercise2(int x) {
+        List<Integer> list = new ArrayList<>();
+        int equals = 2;
+        while (equals <= x * 2) {
+            list.add(equals);
+            equals += 2;
+        }
+        return list;
     }
+
 
     // TODO trüki välja korrutustabel mis on x ühikut lai ja y ühikut kõrge
     // TODO näiteks x = 3 y = 3
