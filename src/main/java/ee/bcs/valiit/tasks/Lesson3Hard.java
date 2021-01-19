@@ -1,12 +1,12 @@
 package ee.bcs.valiit.tasks;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Lesson3Hard {
     public static void main(String[] args) {
 
 //        System.out.println(playNumbersGame());
+        System.out.println("Sum is " + evenFibonacci(10));
     }
 
     private static int playNumbersGame() {
@@ -56,7 +56,24 @@ public class Lesson3Hard {
 
     public static int evenFibonacci(int x) {
         // TODO liida kokku kõik paaris fibonacci arvud kuni numbrini x
-        return 0;
+
+//        for (int j = 0; j <= x; j++) {
+
+        int total = 0;
+        int a = 0;
+        int b = 1;
+        // alustab nullist, laseb kuni x, liidab iga kord +1
+        for (int i = 0; i < x; i++) {
+//            System.out.print(a + " ");
+            int c = a + b;
+            a = b;
+            b = c;
+            // kui b on paaris siis liidab selle
+            if (b % 2 == 0) {
+                total += b;
+            }
+        }
+        return total;
     }
 
 
@@ -99,4 +116,5 @@ public class Lesson3Hard {
 //    }
         return "";
     }
+
 }
