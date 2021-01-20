@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class BookController {
     // http://localhost:8080/tasks
 
-    // http://localhost:8080/tasks/Book?title=Ulmeraamat&authors=PriitPulliprits&yearOfRelease=2020&nrOfPages=666
+    // http://localhost:8080/tasks/Book?title=Ulmeraamat&authors=Priit&yearOfRelease=2020&nrOfPages=666
     @GetMapping("Book")
     public Book book(@RequestParam("title") String title,
                      @RequestParam("authors") String authors,
@@ -19,7 +19,7 @@ public class BookController {
         Book book = new Book();
         book.setTitle(title);
         book.setAuthors(authors);
-        book.getYearOfRelease(yearOfRelease);
+        book.setYearOfRelease(yearOfRelease);
         book.setNrOfPages(nrOfPages);
 
         return book;

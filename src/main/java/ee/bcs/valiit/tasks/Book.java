@@ -22,8 +22,8 @@ public class Book {
         this.authors = authors;
     }
 
-    public int getYearOfRelease(int yearOfRelease) {
-        return this.yearOfRelease;
+    public int getYearOfRelease() {
+        return yearOfRelease;
     }
 
     public void setYearOfRelease(int yearOfRelease) {
