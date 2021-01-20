@@ -5,13 +5,13 @@ import ee.bcs.valiit.tasks.Book;
 import ee.bcs.valiit.tasks.Lesson2;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("tests")
+@RequestMapping("tasks")
 @RestController
 public class BookController {
     // http://localhost:8080/tasks
 
-    // http://localhost:8080/tasks/book?title=Ulmeraamat&authors=PriitPulliprits&yearOfRelease=2020&nrOfPages=666
-    @GetMapping("book")
+    // http://localhost:8080/tasks/Book?title=Ulmeraamat&authors=PriitPulliprits&yearOfRelease=2020&nrOfPages=666
+    @GetMapping("Book")
     public Book book(@RequestParam("title") String title,
                      @RequestParam("authors") String authors,
                      @RequestParam("yearOfRelease") int yearOfRelease,
