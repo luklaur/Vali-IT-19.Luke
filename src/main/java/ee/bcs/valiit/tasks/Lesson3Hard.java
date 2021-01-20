@@ -86,7 +86,6 @@ public class Lesson3Hard {
         // tekitada morse tõlk
 
         String textToLow = text.toLowerCase(Locale.ROOT);
-        StringBuilder morse = new StringBuilder();
         HashMap<String, String> map = new HashMap<>();
 
         map.put("a", ".-");
@@ -117,13 +116,12 @@ public class Lesson3Hard {
         map.put("z", "--..");
         map.put(" ", " ");
 
-        String translation = "";
+        String toMorse = "";
         for (int i = 0; i < text.length(); i++) {
-            // mis see substring loogika siin on???
             String key = textToLow.substring(i, i + 1);
-            translation += map.get(key) + " ";
+            toMorse += map.get(key) + " ";
         }
-        return translation;
+        return toMorse;
     }
 
 }

@@ -159,7 +159,7 @@ public class Lesson3 {
 //        int i = 2;
 //        // ruutjuur etteantud numbrist
 //        // castib intiks, sest muidu on double
-////        int rtJrNumbrist = (int) Math.ceil(Math.sqrt(number));
+//        int rtJrNumbrist = (int) Math.ceil(Math.sqrt(number));
 //        // while loop lõppeb
 //        // kui i <= rtJrNumbrist
 //        while (i < number) {
