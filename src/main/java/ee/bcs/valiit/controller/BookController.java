@@ -1,17 +1,25 @@
 package ee.bcs.valiit.controller;
 
+import ch.qos.logback.classic.Logger;
 import ee.bcs.valiit.TestParkForBook;
 import ee.bcs.valiit.tasks.Book;
 import ee.bcs.valiit.tasks.Lesson2;
+import org.hibernate.sql.Insert;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.DefaultEditorKit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping("tasks")
 @RestController
 public class BookController {
+
+
 
 //    HashMap<String, String> raamatud = new HashMap<>();
 
