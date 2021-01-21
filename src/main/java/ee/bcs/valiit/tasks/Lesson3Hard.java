@@ -9,7 +9,7 @@ public class Lesson3Hard {
 
 //        System.out.println(playNumbersGame());
 //        System.out.println("Sum is " + evenFibonacci(10));
-        System.out.println(morseCode("SOS"));
+//        System.out.println(morseCode("SOS"));
     }
 
     private static int playNumbersGame() {
