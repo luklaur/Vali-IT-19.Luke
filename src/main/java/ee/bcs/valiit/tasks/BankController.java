@@ -30,53 +30,60 @@ public class BankController {
 
 
     // http://localhost:8080/solution/bank/accountBalance?accountNr=EE123
-    public BigDecimal accountBalance() {
-        return BigDecimal.ZERO;
+    @GetMapping("accountBalance")
+    public BigDecimal accountBalance(@RequestParam("accountNr") String accountNr) {
+        String sql = "SELECT balance FROM account where account_number = :accountNumber";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("accountNumber", accountNr);
+        return jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
+        // return accountMap.get(accountNr);
     }
 
-
-    // http://localhost:8080/tasks/bank/depositMoney
+    // http://localhost:8080/tasks/depositMoney
     @PutMapping("depositMoney")
-    public String depositMoney(@RequestBody Bank abc) {
+    public String depositMoney(@RequestBody Bank poogen) {
         String sql = "SELECT balance FROM account WHERE account_nr = :account_nr";
         Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("account_nr", abc.getAccount());
+        paramMap.put("account_nr", poogen.getAccount());
         BigDecimal balance = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
 
-        BigDecimal newBalance = balance.add(abc.getBalance());
+        BigDecimal newBalance = balance.add(poogen.getBalance());
 
         String sql2 = "UPDATE account SET balance = :balance WHERE account_nr = :account_nr";
         Map<String, Object> paramMap2 = new HashMap<>();
-        paramMap2.put("account_nr", abc.getAccount());
+        paramMap2.put("account_nr", poogen.getAccount());
         paramMap2.put("balance", newBalance);
         jdbcTemplate.update(sql2, paramMap2);
         return "Money deposited";
     }
 
 
- /*   // http://localhost:8080/solution/bank/withdrawMoney?accountNr=EE123&amount=12
-    @PutMapping("withrawMoney")
-    public String withdrawMoney(@RequestBody ???) {
+    // http://localhost:8080/tasks/withdrawMoney
+    @PutMapping("withdrawMoney")
+    public String withdrawMoney(@RequestBody Bank poogen2) {
         String sql = "SELECT balance FROM account WHERE account = :account_nr";
         Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("account_nr", ???.getAccount());
+        paramMap.put("account_nr", poogen2.getAccount());
         BigDecimal balance = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
 
-        BigDecimal newBalance = balance.subtract(???.getAmount());
+        BigDecimal newBalance = balance.subtract(poogen2.getBalance());
+        if(newBalance.compareTo(BigDecimal.ZERO) < 0){
+            throw new RuntimeException("Not enough money");
+        }
 
-        String sql2 ="UPDATE account SET balance = :balance WHERE account = :account_nr";
+        String sql2 = "UPDATE account SET balance = :balance WHERE account = :account_nr";
         Map<String, Object> paramMap2 = new HashMap<>();
-        paramMap2.put("account_nr", ???.getAccount());
+        paramMap2.put("account_nr", poogen2.getAccount());
         paramMap2.put("balance", newBalance);
-        jdbcTemplate.update(sql2, paramMap2)
-        return "Money withrawn";
-
-    }*/
-
-    // http://localhost:8080/solution/bank/transferMoney?fromAccount=EE123&toAccount=EE124&amount=12
-    public void transferMoney() {
+        jdbcTemplate.update(sql2, paramMap2);
+        return "Money withdrawn";
 
     }
+
+    // http://localhost:8080/solution/bank/transferMoney?fromAccount=EE123&toAccount=EE124&amount=12
+//    public void transferMoney() {
+
+//    }
 
 
 }
