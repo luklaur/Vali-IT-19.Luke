@@ -12,34 +12,25 @@ import java.util.Map;
 @RequestMapping("tasks")
 @RestController
 public class BankController {
+//    HashMap<String, BigDecimal> accountMap = new HashMap<>();
 
     @Autowired
-    private NamedParameterJdbcTemplate jdbcTemplate;
-    HashMap<String, BigDecimal> accountMap = new HashMap<>();
+    private BankService bankService;
 
     // http://localhost:8080/tasks/createAccount?accountNr=EE123
     @PostMapping("createAccount")
     public String createAccount(@RequestParam("accountNr") String account_nr) {
-        String sql = "INSERT INTO account (account_nr, balance) VALUES (:account_nrParameter, :balanceParameter)";
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("account_nrParameter", account_nr);
-        paramMap.put("balanceParameter", BigDecimal.ZERO);
-        jdbcTemplate.update(sql, paramMap);
-        return "New account added";
+        return bankService.createAccount(account_nr);
     }
 
 
-    // http://localhost:8080/solution/bank/accountBalance?accountNr=EE123
+    // http://localhost:8080/tasks/accountBalance?account_nr=EE748
     @GetMapping("accountBalance")
-    public BigDecimal accountBalance(@RequestParam("accountNr") String accountNr) {
-        String sql = "SELECT balance FROM account where account_number = :accountNumber";
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("accountNumber", accountNr);
-        return jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
-        // return accountMap.get(accountNr);
+    public BigDecimal accountBalance(@RequestParam("account_nr") String account_nr) {
+        return bankService.accountBalance(account_nr);
     }
 
-    // http://localhost:8080/tasks/depositMoney
+/*    // http://localhost:8080/tasks/depositMoney
     @PutMapping("depositMoney")
     public String depositMoney(@RequestBody Bank poogen) {
         String sql = "SELECT balance FROM account WHERE account_nr = :account_nr";
@@ -55,43 +46,43 @@ public class BankController {
         paramMap2.put("balance", newBalance);
         jdbcTemplate.update(sql2, paramMap2);
         return "Money deposited";
-    }
+    }*/
 
 
-    // http://localhost:8080/tasks/withdrawMoney
+ /*   // http://localhost:8080/tasks/withdrawMoney
     @PutMapping("withdrawMoney")
     public String withdrawMoney(@RequestBody Bank poogen2) {
-        String sql = "SELECT balance FROM account WHERE account = :account_nr";
+        String sql = "SELECT balance FROM account WHERE account_nr = :account_nr";
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("account_nr", poogen2.getAccount());
         BigDecimal balance = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
 
         BigDecimal newBalance = balance.subtract(poogen2.getBalance());
-        if(newBalance.compareTo(BigDecimal.ZERO) < 0){
+        if (newBalance.compareTo(BigDecimal.ZERO) < 0) {
             throw new RuntimeException("Not enough money");
         }
 
-        String sql2 = "UPDATE account SET balance = :balance WHERE account = :account_nr";
+        String sql2 = "UPDATE account SET balance = :balance WHERE account_nr = :account_nr";
         Map<String, Object> paramMap2 = new HashMap<>();
         paramMap2.put("account_nr", poogen2.getAccount());
         paramMap2.put("balance", newBalance);
         jdbcTemplate.update(sql2, paramMap2);
         return "Money withdrawn";
 
-    }
+    }*/
 
-    // http://localhost:8080/tasks/transferMoney?fromAccount=EE748&toAccount=EE124&amount=100
+  /*  // http://localhost:8080/tasks/transferMoney?fromAccount=EE748&toAccount=EE124&amount=100
     @GetMapping("transferMoney")
     public void transferMoney(@RequestParam("fromAccount") String fromAccount,
                               @RequestParam("toAccount") String toAccount,
-                              @RequestParam("amount") BigDecimal amount){
+                              @RequestParam("amount") BigDecimal amount) {
         String sql = "SELECT balance FROM account where account_nr = :account_nr";
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("account_nr", fromAccount);
         BigDecimal fromAccountBalance = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
 
         BigDecimal newFromAccountBalance = fromAccountBalance.subtract(amount);
-        if(newFromAccountBalance.compareTo(BigDecimal.ZERO) < 0){
+        if (newFromAccountBalance.compareTo(BigDecimal.ZERO) < 0) {
             throw new RuntimeException("Not enough money");
         }
 
@@ -113,7 +104,17 @@ public class BankController {
         paramMap4.put("account_nr", toAccount);
         paramMap4.put("balance", newToAccountBalance);
         jdbcTemplate.update(sql4, paramMap4);
-    }
+    }*/
+
+  /*  // http://localhost:8080/solution/bank/viewAllAcc
+    @GetMapping("accountBalance")
+    public BigDecimal accountBalance(@PathVariable("accountNr") String accountNr) {
+        String sql = "SELECT * FROM account where account_number = :*";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("accountNumber", accountNr);
+        return jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
+        // return accountMap.get(accountNr);
+    }*/
 
 
 }
