@@ -17,17 +17,17 @@ public class BankController {
     @Autowired
     private BankService bankService;
 
-    // http://localhost:8080/tasks/createAccount?accountNr=EE123
+    // http://localhost:8080/tasks/createAccount?account_nr=EE123
     @PostMapping("createAccount")
-    public String createAccount(@RequestParam("accountNr") String account_nr) {
-        return bankService.createAccount(account_nr);
+    public String createAccount(@RequestParam("account_nr") String accountNr) {
+        return bankService.createAccount(accountNr);
     }
 
 
     // http://localhost:8080/tasks/accountBalance?account_nr=EE748
     @GetMapping("accountBalance")
-    public BigDecimal accountBalance(@RequestParam("account_nr") String account_nr) {
-        return bankService.accountBalance(account_nr);
+    public BigDecimal accountBalance(@RequestParam("account_nr") String accountNr) {
+        return bankService.accountBalance(accountNr);
     }
 
 /*    // http://localhost:8080/tasks/depositMoney

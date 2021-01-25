@@ -12,13 +12,12 @@ public class BankService {
     @Autowired
     private BankRepository bankRepository;
 
-    public String createAccount(String account_nr) {
-        bankRepository.createAccount(account_nr);
+    public String createAccount(String accountNr) {
+        bankRepository.createAccount(accountNr);
         return "Account created";
     }
 
-    public BigDecimal accountBalance(@RequestParam("account_nr") String account_nr) {
-        bankRepository.accountBalance(account_nr);
-        return accountBalance(account_nr);
+    public BigDecimal accountBalance(@RequestParam("account_nr") String accountNr) {
+        return bankRepository.accountBalance(accountNr);
     }
 }
