@@ -43,6 +43,15 @@ public class BankController {
                                 @RequestParam("amount") BigDecimal amount) {
         return bankService.withdrawMoney(accountNr, amount);
     }
+
+  /*  // http://localhost:8080/tasks/transferMoney?fromAccount=EE748&toAccount=EE124&amount=100
+    @GetMapping("transferMoney")
+    public String transferMoney(@RequestParam("fromAccount") String fromAccount,
+                                @RequestParam("toAccount") String toAccount,
+                                @RequestParam("amount") BigDecimal amount) {
+        return bankService.transferMoney(fromAccount, toAccount, amount);
+    }*/
+
 }
     /*  // http://localhost:8080/tasks/transferMoney?fromAccount=EE748&toAccount=EE124&amount=100
     @GetMapping("transferMoney")

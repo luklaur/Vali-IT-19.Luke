@@ -40,4 +40,14 @@ public class BankService {
     }
 
 
+  /*  public String transferMoney(String fromAccount, String toAccount, BigDecimal amount) {
+
+        BigDecimal balance = bankRepository.accountBalance(accountNr);
+        BigDecimal newBalance = balance.subtract(amount);
+        if (newBalance.compareTo(BigDecimal.ZERO) < 0) {
+            throw new RuntimeException("Not enough money");
+        }
+        bankRepository.updateBalance(accountNr, newBalance);
+
+    }*/
 }
