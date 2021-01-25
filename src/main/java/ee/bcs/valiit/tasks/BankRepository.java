@@ -23,11 +23,21 @@ public class BankRepository {
         jdbcTemplate.update(sql, paramMap);
     }
 
-    public BigDecimal accountBalance(String accountNr){
+    public BigDecimal accountBalance(String accountNr) {
         String sql = "SELECT balance FROM account WHERE account_nr = :account_nr";
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("account_nr", accountNr);
         return jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
     }
+
+
+    public void updateBalance(String accountNr, BigDecimal newBalance) {
+        String sql2 = "UPDATE account SET balance = :balance WHERE account_nr = :account_nr";
+        Map<String, Object> paramMap2 = new HashMap<>();
+        paramMap2.put("account_nr", accountNr);
+        paramMap2.put("balance", newBalance);
+        jdbcTemplate.update(sql2, paramMap2);
+    }
+
 
 }

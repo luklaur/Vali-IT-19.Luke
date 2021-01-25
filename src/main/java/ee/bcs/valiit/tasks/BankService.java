@@ -20,4 +20,14 @@ public class BankService {
     public BigDecimal accountBalance(@RequestParam("account_nr") String accountNr) {
         return bankRepository.accountBalance(accountNr);
     }
+
+    public String depositMoney(@RequestParam("account_nr") String accountNr,
+                               @RequestParam("amount") BigDecimal amount) {
+        BigDecimal balance = bankRepository.accountBalance(accountNr);
+        BigDecimal newBalance = balance.add(amount);
+        bankRepository.updateBalance(accountNr, newBalance);
+        return "Money deposited";
+
+    }
+
 }

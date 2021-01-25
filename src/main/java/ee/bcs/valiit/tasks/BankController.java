@@ -30,23 +30,26 @@ public class BankController {
         return bankService.accountBalance(accountNr);
     }
 
-/*    // http://localhost:8080/tasks/depositMoney
+    // http://localhost:8080/tasks/depositMoney?account_nr=EE789&amount=500
     @PutMapping("depositMoney")
-    public String depositMoney(@RequestBody Bank poogen) {
-        String sql = "SELECT balance FROM account WHERE account_nr = :account_nr";
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("account_nr", poogen.getAccount());
-        BigDecimal balance = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
+    public String depositMoney(@RequestParam("account_nr") String accountNr,
+                             @RequestParam("amount") BigDecimal amount) {
+        return bankService.depositMoney(accountNr, amount);
+    }
+//        String sql = "SELECT balance FROM account WHERE account_nr = :account_nr";
+//        Map<String, Object> paramMap = new HashMap<>();
+//        paramMap.put("account_nr", poogen.getAccount());
+//        BigDecimal balance = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
+//
+//        BigDecimal newBalance = balance.add(poogen.getBalance());
+//
+//        String sql2 = "UPDATE account SET balance = :balance WHERE account_nr = :account_nr";
+//        Map<String, Object> paramMap2 = new HashMap<>();
+//        paramMap2.put("account_nr", poogen.getAccount());
+//        paramMap2.put("balance", newBalance);
+//        jdbcTemplate.update(sql2, paramMap2);
+//        return "Money deposited";
 
-        BigDecimal newBalance = balance.add(poogen.getBalance());
-
-        String sql2 = "UPDATE account SET balance = :balance WHERE account_nr = :account_nr";
-        Map<String, Object> paramMap2 = new HashMap<>();
-        paramMap2.put("account_nr", poogen.getAccount());
-        paramMap2.put("balance", newBalance);
-        jdbcTemplate.update(sql2, paramMap2);
-        return "Money deposited";
-    }*/
 
 
  /*   // http://localhost:8080/tasks/withdrawMoney
