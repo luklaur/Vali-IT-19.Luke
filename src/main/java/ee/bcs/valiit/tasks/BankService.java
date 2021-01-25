@@ -17,17 +17,27 @@ public class BankService {
         return "Account created";
     }
 
-    public BigDecimal accountBalance(@RequestParam("account_nr") String accountNr) {
+    public BigDecimal accountBalance(String accountNr) {
         return bankRepository.accountBalance(accountNr);
     }
 
-    public String depositMoney(@RequestParam("account_nr") String accountNr,
-                               @RequestParam("amount") BigDecimal amount) {
+    public String depositMoney(String accountNr, BigDecimal amount) {
         BigDecimal balance = bankRepository.accountBalance(accountNr);
         BigDecimal newBalance = balance.add(amount);
         bankRepository.updateBalance(accountNr, newBalance);
         return "Money deposited";
 
     }
+
+    public String withdrawMoney(String accountNr, BigDecimal amount) {
+        BigDecimal balance = bankRepository.accountBalance(accountNr);
+        BigDecimal newBalance = balance.subtract(amount);
+        if (newBalance.compareTo(BigDecimal.ZERO) < 0) {
+            throw new RuntimeException("Not enough money");
+        }
+        bankRepository.updateBalance(accountNr, newBalance);
+        return "Money withdrawn";
+    }
+
 
 }
