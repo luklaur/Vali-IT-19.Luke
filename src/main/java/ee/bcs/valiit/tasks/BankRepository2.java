@@ -10,6 +10,7 @@ import java.util.Map;
 
 @Repository
 public class BankRepository2 {
+
     @Autowired
     private NamedParameterJdbcTemplate jdbcTemplate;
 

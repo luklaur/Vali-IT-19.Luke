@@ -14,8 +14,8 @@ public class BankService2 {
 
     @Autowired
     BankRepository2 bankRepository2;
-    @Autowired
-    private NamedParameterJdbcTemplate jdbcTemplate;
+//    @Autowired
+//    private NamedParameterJdbcTemplate jdbcTemplate;
 
     public void createAccount(String accountNr) {
         bankRepository2.insertIntoAccount(accountNr);
