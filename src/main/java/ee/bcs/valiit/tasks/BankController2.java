@@ -17,15 +17,33 @@ public class BankController2 {
 
     @Autowired
     private BankService2 bankService2;
-//    @Autowired
-//    private NamedParameterJdbcTemplate jdbcTemplate;
+    @Autowired
+    private NamedParameterJdbcTemplate jdbcTemplate;
 
     HashMap<String, BigDecimal> accountMap = new HashMap<>();
 
-    // http://localhost:8080/bank2/createAccount?accountNr=EE123
+    // http://localhost:8080/bank2/createCustomer?firstname=Priit&lastname=Tuust&address=Kalevi 7
+
+    @GetMapping("createCustomer")
+    public void createCustomer(@RequestParam("firstname") String firstname,
+                               @RequestParam("lastname") String lastname,
+                               @RequestParam("address") String address) {
+        bankService2.createCustomer(firstname, lastname, address);
+
+//        String sql = "INSERT INTO customer (firstname, lastname, address) VALUES (:firstname, :lastname, :address)";
+//        Map<String, Object> paramMap = new HashMap();
+//        paramMap.put("firstname", firstname);
+//        paramMap.put("lastname", lastname);
+//        paramMap.put("address", address);
+//        jdbcTemplate.update(sql, paramMap);
+    }
+
+
+    // http://localhost:8080/bank2/createAccount?accountNr=EE124&customer_id=1
     @GetMapping("createAccount")
-    public void createAccount(@RequestParam("accountNr") String accountNr) {
-        bankService2.createAccount(accountNr);
+    public void createAccount(@RequestParam("accountNr") String accountNr,
+                              @RequestParam("customer_id") int customer_id) {
+        bankService2.createAccount(accountNr, customer_id);
 //        String sql = "INSERT INTO account2 (account_number, balance) VALUES (:accountNumber, :balance)";
 //        Map<String, Object> paramMap = new HashMap();
 //        paramMap.put("accountNumber", accountNr);
