@@ -36,11 +36,11 @@ public class BankRepository2 {
 
     public void updateBalance(String accountNr, BigDecimal newBalance) {
 
-        String sql2 = "UPDATE account SET balance = :balance WHERE account_number = :accountNumber";
-        Map<String, Object> paramMap2 = new HashMap();
-        paramMap2.put("accountNumber", accountNr);
-        paramMap2.put("balance", newBalance);
-        jdbcTemplate.update(sql2, paramMap2);
+        String sql = "UPDATE account SET balance = :balance WHERE account_number = :accountNumber";
+        Map<String, Object> paramMap = new HashMap();
+        paramMap.put("accountNumber", accountNr);
+        paramMap.put("balance", newBalance);
+        jdbcTemplate.update(sql, paramMap);
     }
 
     public void insertIntoCustomer(String firstname, String lastname, String address) {

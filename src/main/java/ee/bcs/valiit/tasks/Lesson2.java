@@ -9,10 +9,10 @@ public class Lesson2 {
 //        System.out.println(Arrays.toString(exercise1(new int[]{1, 2, 3, 4, 5, 6, 7})));
 //        System.out.println(exercise2(7));
 //        exercise1();
-//        exercise2(5);
+        System.out.println(exercise2(5));
 //        exercise3(3, 3);
 //        exercise4(20);
-//        exercise5(3,3)
+//        exercise5(3,3);
 //        System.out.println(exercise5(1, 10));
 
     }
