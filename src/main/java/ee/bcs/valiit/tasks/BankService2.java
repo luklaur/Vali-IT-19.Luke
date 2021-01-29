@@ -34,7 +34,7 @@ public class BankService2 {
         BigDecimal balance = bankRepository2.returnBalance(accountNr);
         BigDecimal newBalance = balance.add(amount);
         bankRepository2.updateBalance(accountNr, newBalance);
-        bankRepository2.depositHistory(accountNr, amount);
+        bankRepository2.depositHistory(accountNr, amount, newBalance);
 
     }
 
@@ -47,7 +47,7 @@ public class BankService2 {
             throw new RuntimeException("Not enough money");
         }
         bankRepository2.updateBalance(accountNr, newBalance);
-        bankRepository2.withdrawHistory(accountNr, amount);
+        bankRepository2.withdrawHistory(accountNr, amount, newBalance);
     }
 
     public void transferMoney(String fromAccount, String toAccount, BigDecimal amount) {
@@ -62,6 +62,6 @@ public class BankService2 {
         BigDecimal toAccountBalance = bankRepository2.returnBalance(toAccount);
         BigDecimal newToAccountBalance = toAccountBalance.add(amount);
         bankRepository2.updateBalance(toAccount, newToAccountBalance);
-        bankRepository2.transferHistory(fromAccount, toAccount, amount);
+        bankRepository2.transferHistory(fromAccount, toAccount, amount, newToAccountBalance);
     }
 }

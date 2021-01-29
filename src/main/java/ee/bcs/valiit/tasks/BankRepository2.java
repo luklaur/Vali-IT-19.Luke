@@ -53,38 +53,41 @@ public class BankRepository2 {
         jdbcTemplate.update(sql, paramMap);
     }
 
-    public void depositHistory(String toAccount, BigDecimal amount) {
+    public void depositHistory(String toAccount, BigDecimal amount, BigDecimal newBalance) {
 
-        String sql = "INSERT INTO transactionhistory (to_account, amount, time, transaction_type) VALUES (:accountNumber, :amountParameter, :timeParameter, :transaction_type)";
+        String sql = "INSERT INTO transactionhistory (to_account, amount, time, transaction_type, balance_history) VALUES (:accountNumber, :amountParameter, :timeParameter, :transaction_type, :balance_history)";
         Map<String, Object> paramMap = new HashMap();
         paramMap.put("accountNumber", toAccount);
         paramMap.put("amountParameter", amount);
         paramMap.put("timeParameter", LocalDateTime.now());
         paramMap.put("transaction_type", "deposit");
+        paramMap.put("balance_history", newBalance);
         jdbcTemplate.update(sql, paramMap);
     }
 
-    public void withdrawHistory(String fromAccount, BigDecimal amount) {
+    public void withdrawHistory(String fromAccount, BigDecimal amount, BigDecimal newBalance) {
 
-        String sql = "INSERT INTO transactionhistory (from_account, amount, time, transaction_type) VALUES (:accountNumber, :amountParameter, :timeParameter, :transaction_type)";
+        String sql = "INSERT INTO transactionhistory (from_account, amount, time, transaction_type, balance_history) VALUES (:accountNumber, :amountParameter, :timeParameter, :transaction_type, :balance_history)";
         Map<String, Object> paramMap = new HashMap();
         paramMap.put("accountNumber", fromAccount);
         paramMap.put("amountParameter", amount);
         paramMap.put("timeParameter", LocalDateTime.now());
         paramMap.put("transaction_type", "withdraw");
+        paramMap.put("balance_history", newBalance);
         jdbcTemplate.update(sql, paramMap);
     }
 
 
-    public void transferHistory(String fromAccount, String toAccount, BigDecimal amount) {
+    public void transferHistory(String fromAccount, String toAccount, BigDecimal amount, BigDecimal newToAccountBalance) {
 
-        String sql = "INSERT INTO transactionhistory (from_account, to_account, amount, time, transaction_type) VALUES (:fromAccount, :toAccount, :amountParameter, :timeParameter, :transaction_type)";
+        String sql = "INSERT INTO transactionhistory (from_account, to_account, amount, time, transaction_type, balance_history) VALUES (:fromAccount, :toAccount, :amountParameter, :timeParameter, :transaction_type, :balance_history)";
         Map<String, Object> paramMap = new HashMap();
         paramMap.put("fromAccount", fromAccount);
         paramMap.put("toAccount", toAccount);
         paramMap.put("amountParameter", amount);
         paramMap.put("timeParameter", LocalDateTime.now());
         paramMap.put("transaction_type", "transfer");
+        paramMap.put("balance_history", newToAccountBalance);
         jdbcTemplate.update(sql, paramMap);
     }
 }

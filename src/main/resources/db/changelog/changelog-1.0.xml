@@ -37,4 +37,9 @@
             <column name="transaction_type" type="text"/>
         </createTable>
     </changeSet>
+    <changeSet  id="29-01-21 added a column in transactionhistory"  author="Lauri">
+        <addColumn  tableName="transactionhistory">
+            <column  name="balance_history"  type="numeric(10,2)"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
