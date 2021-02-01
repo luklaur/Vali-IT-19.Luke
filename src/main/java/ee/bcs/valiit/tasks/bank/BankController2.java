@@ -1,7 +1,6 @@
-package ee.bcs.valiit.tasks;
+package ee.bcs.valiit.tasks.bank;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Map;
 
 @RequestMapping("bank2")
 @RestController
@@ -21,7 +19,7 @@ public class BankController2 {
 //    private NamedParameterJdbcTemplate jdbcTemplate;
 
     HashMap<String, BigDecimal> accountMap = new HashMap<>();
-
+// postmapping ja requestbody
     // http://localhost:8080/bank2/createCustomer?firstname=Priit&lastname=Tuust&address=Kalevi 7
     @GetMapping("createCustomer")
     public void createCustomer(@RequestParam("firstname") String firstname,

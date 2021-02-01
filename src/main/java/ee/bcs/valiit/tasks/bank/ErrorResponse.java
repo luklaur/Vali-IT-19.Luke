@@ -1,4 +1,4 @@
-package ee.bcs.valiit.tasks;
+package ee.bcs.valiit.tasks.bank;
 
 public class ErrorResponse {
     private String message;

@@ -1,13 +1,9 @@
-package ee.bcs.valiit.tasks;
+package ee.bcs.valiit.tasks.bank;
 
-import ee.bcs.valiit.tasks.Bank;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
 @RequestMapping("tasks")
 @RestController

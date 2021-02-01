@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Banker</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+<header id="header">
+    <p>
+        Easy Banking
+        <br><br>
+        All buttons on the same page!
+    </p></header>
+
+<div id="container">
+
+    <main id="center" class="column">
+        <div>
+            <div style="margin-left:auto;margin-right:auto;">
+                <table width="700px" border="2">
+                    <td colspan="3">Create customer</td>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Address</th>
+                    </tr>
+                    <tr>
+                        <td><input id="firstName" type="text"></td>
+                        <td><input id="lastName" type="text"></td>
+                        <td><input id="address" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <button id="enter_customer" type="button">Enter</button>
+                        </td>
+                    </tr>
+                </table>
+                <br><br><br>
+
+                <table width="700px" border="2">
+                    <td colspan="4">Create account</td>
+                    <tr>
+                        <th>Account Nr</th>
+                        <th>Customer ID</th>
+                    <tr>
+                        <td><input id="create_acc" type="text"></td>
+                        <td><input id="customer_id" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button id="enter_account" type="button">Enter</button>
+                        </td>
+                    </tr>
+                </table>
+                <br><br><br>
+
+                <table width="700px" border="2">
+                    <td colspan="4">Deposit money</td>
+                    <tr>
+                        <th>Account Nr</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td><input id="deposit_acc" type="text"></td>
+                        <td><input id="deposit_amount" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button id="enter_deposit" type="button">Enter</button>
+                        </td>
+                    </tr>
+                </table>
+                <br><br><br>
+
+                <table width="700px" border="2">
+                    <td colspan="4">Withdraw money</td>
+                    <tr>
+                        <th>Account Nr</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td><input id="withdraw_acc" type="text"></td>
+                        <td><input id="withdraw_amount" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button id="enter_withdraw" type="button">Enter</button>
+                        </td>
+                    </tr>
+                </table>
+                <br><br><br>
+
+                <table width="700px" border="2">
+                    <td colspan="3">Transfer money</td>
+                    <tr>
+                        <th>From account</th>
+                        <th>To account</th>
+                        <th>amount</th>
+                    </tr>
+                    <tr>
+                        <td><input id="from_acc" type="text"></td>
+                        <td><input id="to_acc" type="text"></td>
+                        <td><input id="transfer_amount" type="number"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <button id="enter_transfer" type="button">Enter</button>
+                        </td>
+                    </tr>
+                </table>
+                <br><br><br>
+
+                <table width="700px" border="2">
+                    <td>Account balance</td>
+                    <tr>
+                        <th>Account nr</th>
+                    </tr>
+                    <tr>
+                        <td><input id="balance_acc" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button id="enter_balance" type="button">Enter</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    <nav id="left" class="column">
+
+    </nav>
+
+    <nav id="right" class="column">
+
+
+    </nav>
+
+</div>
+
+
+<script>
+
+    let postUrl = '/banker/createCustomer'
+
+
+    function createCustomer() {
+        let customer = {
+            firstName: document.getElementById("firstName").value,
+            lastName: document.getElementById("lastName").value,
+            address: document.getElementById("address").value,
+        }
+        fetch(postUrl,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(customer)
+            })
+        /*.then(result => result.text())
+        .then(function (result) {
+        });*/
+    }
+
+    let element = document.getElementById("enter_customer");
+    element.addEventListener("click", createCustomer)
+
+
+</script>
+
+<div id="footer-wrapper">
+    <footer id="footer"><p> Easy Banking </p></footer>
+</div>
+
+</body>
+
+</html>

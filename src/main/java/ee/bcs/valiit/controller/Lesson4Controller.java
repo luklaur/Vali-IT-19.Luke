@@ -1,7 +1,7 @@
 /*
 package ee.bcs.valiit.controller;
 
-import ee.bcs.valiit.tasks.Bank;
+import ee.bcs.valiit.tasks.bank.Bank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.web.bind.annotation.*;

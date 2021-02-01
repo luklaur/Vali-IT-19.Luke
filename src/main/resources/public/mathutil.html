@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+<body>
+<div style="width: 100%; text-align: center;">
+<p>Min value of 2 numbers</p>
+a: <input id="min_a">
+b: <input id="min_b">
+<button id="min_button" type="button">Min</button>
+vastus: <input id="min_answer" disabled>
+<br/>
+</div>
+<script>
+    let min_a = document.getElementById("min_a");
+    let min_b = document.getElementById("min_b");
+    let min_answer = document.getElementById("min_answer");
+
+    function pressButtonFunction() {
+        if (min_a.value < min_b.value) {
+            min_answer.value = min_a.value;
+        } else {
+            min_answer.value = min_b.value;
+        }
+    }
+    let element = document.getElementById("min_button");
+    element.addEventListener("click", pressButtonFunction)
+</script>
+
+<div style="width: 100%; text-align: center;">
+<p>Max value of 2 numbers</p>
+a: <input id="max_a">
+b: <input id="max_b">
+<button id="max_button" type="button">Max</button>
+vastus: <input id="max_answer" disabled>
+<br/>
+</div>
+<script>
+    let max_a = document.getElementById("max_a");
+    let max_b = document.getElementById("max_b");
+    let max_answer = document.getElementById("max_answer");
+
+    function pressButtonFunction2() {
+        if (max_a.value > max_b.value) {
+            max_answer.value = max_a.value;
+        } else {
+            max_answer.value = max_b.value;
+        }
+    }
+    let element = document.getElementById("max_button");
+    element.addEventListener("click", pressButtonFunction2)
+</script>
+
+
+
+
+</body>
+</html>

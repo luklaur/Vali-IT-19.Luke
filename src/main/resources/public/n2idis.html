@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+        /* Layout */
+        body {
+            min-width: 630px;
+        }
+
+        #container {
+            padding-left: 200px;
+            padding-right: 190px;
+        }
+
+        #container .column {
+            position: relative;
+            float: left;
+        }
+
+        #center {
+            padding: 10px 20px;
+            width: 100%;
+        }
+
+        #left {
+            width: 180px;
+            padding: 0 10px;
+            right: 240px;
+            margin-left: -100%;
+        }
+
+        #right {
+            width: 130px;
+            padding: 0 10px;
+            margin-right: -100%;
+        }
+
+        #footer {
+            clear: both;
+        }
+
+        /* IE hack */
+        * html #left {
+            left: 150px;
+        }
+
+        /* Make the columns the same height as each other */
+        #container {
+            overflow: hidden;
+        }
+
+        #container .column {
+            padding-bottom: 1001em;
+            margin-bottom: -1000em;
+        }
+
+        /* Fix for the footer */
+        * html body {
+            overflow: hidden;
+        }
+
+        * html #footer-wrapper {
+            float: left;
+            position: relative;
+            width: 100%;
+            padding-bottom: 10010px;
+            margin-bottom: -10000px;
+            background: #FF33F9;
+        }
+
+        /* Aesthetics */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Sans-serif;
+            line-height: 1.5em;
+        }
+
+        p {
+            color: #FF3333;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul a {
+            color: black;
+            text-decoration: none;
+        }
+
+        #header, #footer {
+            font-size: large;
+            padding: 0.3em;
+            background: #33FFF6;
+        }
+
+        #left {
+            background: #FF33F9;
+        }
+
+        #right {
+            background: navy;
+        }
+
+        #center {
+            background: cornflowerblue;
+        }
+
+        #container .column {
+            padding-top: 1em;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        /* =============================
+        This script generates sample text for the body content.
+        You can remove this script and any reference to it.
+         ============================= */
+        var bodyText = ["Random lause 1", "Random lause 2", "Random lause 3"]
+
+        function generateText(sentenceCount) {
+            for (var i = 0; i < sentenceCount; i++)
+                document.write(bodyText[Math.floor(Math.random() * 7)] + " ")
+        }
+    </script>
+</head>
+
+<body>
+
+<header id="header">
+    <p>
+    <div style="display:flex;justify-content:center;align-items:center;">
+        <div><img src="siiapilt.jpg"/></div>
+    </div>
+    Siin on header
+   </p></header>
+
+<div id="container">
+
+    <main id="center" class="column">
+        <article>
+
+            Center column
+            <br><br><br><br><br>
+            <div style="display:flex;justify-content:center;align-items:center;">
+                <div><img src="valit.gif"/></div>
+            </div>
+        </article>
+    </main>
+
+    <nav id="left" class="column">
+      <ul>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+
+            <li><a href="#">klicken Sie hier</a></li>
+        </ul>
+
+          <ul>
+              <li><a href="#">Link 2</a></li>
+
+              <li><a href="#">Kliki siia</a></li>
+          </ul>
+        </ul>
+
+    </nav>
+
+    <div id="right" class="column">
+        <h3>Random text</h3>    <p>
+        <h1>
+            <script>generateText(1)</script>
+        </h1>
+        </p>
+        <h3>Random text</h3>   <p>
+        <h1>
+            <script>generateText(1)</script>
+        </h1>
+        </p>
+        <h3>Random text</h3>  <p>
+        <h1>
+            <script>generateText(1)</script>
+        </h1>
+
+    </div>
+
+</div>
+
+<div id="footer-wrapper">
+    <footer id="footer"><p> Footer here </p></footer>
+</div>
+
+</body>
+
+</html>
