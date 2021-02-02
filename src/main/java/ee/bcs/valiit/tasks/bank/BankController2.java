@@ -44,7 +44,6 @@ public class BankController2 {
     // http://localhost:8080/bank2/depositMoney?accountNr=EE123&amount=12
     @GetMapping("depositMoney")
     public void depositMoney(@RequestParam("accountNr") String accountNr, @RequestParam("amount") BigDecimal amount) {
-        // BigDecimal balance = accountMap.get(accountNr); VANA
         bankService2.depositMoney(accountNr, amount);
     }
 

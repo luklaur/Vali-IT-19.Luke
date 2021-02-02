@@ -8,6 +8,24 @@ public class Bank {
     String firstName;
     String lastName;
     String address;
+    int customerId;
+    BigDecimal amount;
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
     public String getAccount() {
         return account;

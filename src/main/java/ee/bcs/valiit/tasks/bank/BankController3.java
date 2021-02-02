@@ -32,7 +32,8 @@ public class BankController3 {
     @Autowired
     private NamedParameterJdbcTemplate jdbcTemplate;
 
-    // http://localhost:8080/bank3/createCustomer
+    // töötab postmanis ja brauseris
+    // http://localhost:8080/banker/createCustomer
     @PostMapping("createCustomer")
     public void createCustomer(@RequestBody Bank customer) {
         String sql = "INSERT INTO customer (firstname, lastname, address) VALUES (:firstName, :lastName, :address)";
@@ -43,9 +44,53 @@ public class BankController3 {
         jdbcTemplate.update(sql, paramMap);
     }
 
-    // http://localhost:8080/bank3/createCustomer
-   /* @PostMapping("createCustomer")
-    public void createCustomer(@RequestBody Bank customer) {
+    // töötab postmanis, javascript tegemata
+    // http://localhost:8080/banker/accountBalance
+    @PostMapping("accountBalance")
+    public BigDecimal returnBalance(@RequestBody Bank customer) {
+        String sql = "SELECT balance FROM account where account_number = :accountNumber";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("accountNumber", customer.getAccount());
+        return jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
+    }
+
+    // töötab
+    // http://localhost:8080/banker/depositMoney
+    @PostMapping("depositMoney")
+    public void depositMoney(@RequestBody Bank customer) {
+        String sql = "SELECT balance FROM account WHERE account_number = :account_nr";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("account_nr", customer.getAccount());
+        paramMap.put("amount", customer.getAmount());
+        BigDecimal balance = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
+        BigDecimal amount = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
+
+        BigDecimal newBalance = amount.add(balance);
+
+        String sql2 = "UPDATE account SET balance = :balance WHERE account_number = :account_nr";
+        Map<String, Object> paramMap2 = new HashMap<>();
+        paramMap2.put("account_nr", customer.getAccount());
+        paramMap2.put("balance", newBalance);
+        jdbcTemplate.update(sql2, paramMap2);
+    }
+
+
+    // ei tööta
+    // http://localhost:8080/banker/createAccount
+    @PostMapping("createAccount")
+    public void createAccount(@RequestBody Bank customer) {
+        String sql = "INSERT INTO account (account_number, balance, customer_id) VALUES (:accountNumber, :balance, :customer_id)";
+        Map<String, Object> paramMap = new HashMap();
+        paramMap.put("accountNumber", customer.getAccount());
+        paramMap.put("balance", BigDecimal.ZERO);
+        paramMap.put("customer_id", customer.getCustomerId());
+        jdbcTemplate.update(sql, paramMap);
+    }
+
+    // ei tööta
+// http://localhost:8080/banker/createCustomerWithAccount
+    @PostMapping("createCustomerWithAccount")
+    public void createCustomerWithAccount(@RequestBody Bank customer) {
         String sql1 = "INSERT INTO customer (firstname, lastname, address) VALUES (:firstName, :lastName, :address)";
         String sql2 = "INSERT INTO account (account_number, balance, customer_id) VALUES (:account_number, :balance, :customer_id)";
         Map<String, Object> paramMap1 = new HashMap();
@@ -58,6 +103,7 @@ public class BankController3 {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(sql1, paramMap1);
         jdbcTemplate.update(sql2, new MapSqlParameterSource(paramMap2), keyHolder);
-    }*/
+    }
+
 
 }

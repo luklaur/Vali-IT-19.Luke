@@ -1,122 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--this ^ sais that the page will adjust it's width to the device used-->
     <title>Title</title>
-    <style type="text/css">
 
-        /* Layout */
-        body {
-            min-width: 630px;
-        }
+    <!--The head tag contains info about the website and it's also where CSS and JavaScript files are loaded-->
+    <!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+    <!--Everything you see on a page will be in a body tag.-->
+    <!--<p></p> tags are used for paragraphs-->
+    <!--<br> is line break-->
+    <!--    href - hypertext reference-->
+    <!--    URL - universal resource locator-->
+    <!--    If there is no target attribute the link will load in the same page!-->
+    <!--    <a href = "url_goes_here.com" target="_blank">Text written in here represents a hyperlink</a>-->
+    <!--    ul - unordered list-->
+    <!--    ol - ordered list - uses numbers-->
+    <!--    li - list item-->
+    <ol> fruit
+        <li>apples</li>
+        <li>oranges</li>
+        <li>mangos</li>
+        <li>banana</li>
+    </ol>
+    <ul> numbered items
+        <li>first item</li>
+        <li>second item</li>
+        <ul>
+            <!--nesting - this is called a child list-->
+            <li>2.1</li>
+            <li>2.2</li>
+            <li>2.3</li>
+        </ul>
+        <li>third item</li>
+    </ul>
 
-        #container {
-            padding-left: 200px;
-            padding-right: 190px;
-        }
+    <!--    tr - table row-->
+    <!--    th - table header-->
+    <!--    td - table cell-->
+    <table border="10" cellpadding="10" cellspacing="5">
+        <tr>
+            <th colspan="6">Colspan 6 title</th>
+        </tr>
+        <tr>
+            <th>rowspan doesn't<br>go over headers</th>
+            <th>column 1</th>
+            <th colspan="2">colspan 2 column 2</th>
+            <th>column 3</th>
+            <th>column 4</th>
 
-        #container .column {
-            position: relative;
-            float: left;
-        }
+        </tr>
+        <tr>
+            <td rowspan="3">rowspan 3 column</td>
+            <td>under 1</td>
+            <td>under 2</td>
+            <td>also under 2</td>
+            <td>under 3</td>
+            <td>under 4</td>
+        </tr>
+        <tr>
+            <td>under 1</td>
+            <td>under 2</td>
+            <td>also under 2</td>
+            <td>under 4</td>
+            <td>under 5</td>
+        </tr>
+        <tr>
+            <td>under 1</td>
+            <td>under 2</td>
+            <td>also under 2</td>
+            <td>under 4</td>
+            <td>under 5</td>
+        </tr>
+    </table>
 
-        #center {
-            padding: 10px 20px;
-            width: 100%;
-        }
-
-        #left {
-            width: 180px;
-            padding: 0 10px;
-            right: 240px;
-            margin-left: -100%;
-        }
-
-        #right {
-            width: 130px;
-            padding: 0 10px;
-            margin-right: -100%;
-        }
-
-        #footer {
-            clear: both;
-        }
-
-        /* IE hack */
-        * html #left {
-            left: 150px;
-        }
-
-        /* Make the columns the same height as each other */
-        #container {
-            overflow: hidden;
-        }
-
-        #container .column {
-            padding-bottom: 1001em;
-            margin-bottom: -1000em;
-        }
-
-        /* Fix for the footer */
-        * html body {
-            overflow: hidden;
-        }
-
-        * html #footer-wrapper {
-            float: left;
-            position: relative;
-            width: 100%;
-            padding-bottom: 10010px;
-            margin-bottom: -10000px;
-            background: #FF33F9;
-        }
-
-        /* Aesthetics */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Sans-serif;
-            line-height: 1.5em;
-        }
-
-        p {
-            color: #FF3333;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul a {
-            color: black;
-            text-decoration: none;
-        }
-
-        #header, #footer {
-            font-size: large;
-            padding: 0.3em;
-            background: #33FFF6;
-        }
-
-        #left {
-            background: #FF33F9;
-        }
-
-        #right {
-            background: navy;
-        }
-
-        #center {
-            background: cornflowerblue;
-        }
-
-        #container .column {
-            padding-top: 1em;
-        }
-
-    </style>
 
     <script type="text/javascript">
         /* =============================
@@ -140,7 +99,7 @@
         <div><img src="siiapilt.jpg"/></div>
     </div>
     Siin on header
-   </p></header>
+    </p></header>
 
 <div id="container">
 
@@ -156,34 +115,37 @@
     </main>
 
     <nav id="left" class="column">
-      <ul>
         <ul>
-            <li><a href="#">Link 1</a></li>
+            <ul>
+                <li><a href="#">Link 1</a></li>
 
-            <li><a href="#">klicken Sie hier</a></li>
-        </ul>
+                <li><a href="#">klicken Sie hier</a></li>
+            </ul>
 
-          <ul>
-              <li><a href="#">Link 2</a></li>
+            <ul>
+                <li><a href="#">Link 2</a></li>
 
-              <li><a href="#">Kliki siia</a></li>
-          </ul>
+                <li><a href="#">Kliki siia</a></li>
+            </ul>
         </ul>
 
     </nav>
 
     <div id="right" class="column">
-        <h3>Random text</h3>    <p>
+        <h3>Random text</h3>
+        <p>
         <h1>
             <script>generateText(1)</script>
         </h1>
         </p>
-        <h3>Random text</h3>   <p>
+        <h3>Random text</h3>
+        <p>
         <h1>
             <script>generateText(1)</script>
         </h1>
         </p>
-        <h3>Random text</h3>  <p>
+        <h3>Random text</h3>
+        <p>
         <h1>
             <script>generateText(1)</script>
         </h1>
