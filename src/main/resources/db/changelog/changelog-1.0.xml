@@ -20,7 +20,7 @@
             </column>
             <column name="account_number" type="text"/>
             <column name="balance" type="numeric(10,2)"/>
-            <column name="customer_id" type="int">
+            <column name="customer_id_key" type="int">
                 <constraints nullable="false"
                              foreignKeyName="fk_account_customer"
                              references="customer(customer_id)"/>

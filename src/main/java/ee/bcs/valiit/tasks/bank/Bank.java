@@ -8,8 +8,34 @@ public class Bank {
     String firstName;
     String lastName;
     String address;
-    int customerId;
+    int customerid;
     BigDecimal amount;
+    String fromAccount;
+    String toAccount;
+
+    public String getFromAccount() {
+        return fromAccount;
+    }
+
+    public void setFromAccount(String fromAccount) {
+        this.fromAccount = fromAccount;
+    }
+
+    public String getToAccount() {
+        return toAccount;
+    }
+
+    public void setToAccount(String toAccount) {
+        this.toAccount = toAccount;
+    }
+
+    public int getCustomerid() {
+        return customerid;
+    }
+
+    public void setCustomerid(int customerid) {
+        this.customerid = customerid;
+    }
 
     public BigDecimal getAmount() {
         return amount;
@@ -17,14 +43,6 @@ public class Bank {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
-    }
-
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
     }
 
     public String getAccount() {

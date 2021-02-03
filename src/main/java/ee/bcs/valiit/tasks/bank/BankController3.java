@@ -16,21 +16,19 @@ import java.util.Random;
 @RestController
 public class BankController3 {
 
+    //    @Autowired
+//    private BankService3 bankService3;
+
+    @Autowired
+    private NamedParameterJdbcTemplate jdbcTemplate;
+
+
     public String makeRandomString() {
         Random random = new Random();
         int randomNumber = random.nextInt(1000);
         String randomString = "EE" + String.valueOf(randomNumber);
         return randomString;
     }
-
-
-// postmapping ja requestbody
-
-//    @Autowired
-//    private BankService3 bankService3;
-
-    @Autowired
-    private NamedParameterJdbcTemplate jdbcTemplate;
 
     // töötab postmanis ja brauseris
     // http://localhost:8080/banker/createCustomer
@@ -44,7 +42,19 @@ public class BankController3 {
         jdbcTemplate.update(sql, paramMap);
     }
 
-    // töötab postmanis, javascript tegemata
+    // töötab postmanis
+    // http://localhost:8080/banker/createAccount
+    @PostMapping("createAccount")
+    public void createAccount(@RequestBody Bank customer) {
+        String sql = "INSERT INTO account (account_number, balance, customer_id_key) VALUES (:account_number, :balance, :customerid)";
+        Map<String, Object> paramMap = new HashMap();
+        paramMap.put("account_number", customer.getAccount());
+        paramMap.put("balance", BigDecimal.ZERO);
+        paramMap.put("customerid", customer.getCustomerid());
+        jdbcTemplate.update(sql, paramMap);
+    }
+
+    // töötab postmanis
     // http://localhost:8080/banker/accountBalance
     @PostMapping("accountBalance")
     public BigDecimal returnBalance(@RequestBody Bank customer) {
@@ -54,7 +64,7 @@ public class BankController3 {
         return jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
     }
 
-    // töötab
+    // töötab postmanis
     // http://localhost:8080/banker/depositMoney
     @PostMapping("depositMoney")
     public void depositMoney(@RequestBody Bank customer) {
@@ -63,9 +73,8 @@ public class BankController3 {
         paramMap.put("account_nr", customer.getAccount());
         paramMap.put("amount", customer.getAmount());
         BigDecimal balance = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
-        BigDecimal amount = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
 
-        BigDecimal newBalance = amount.add(balance);
+        BigDecimal newBalance = balance.add(customer.getAmount());
 
         String sql2 = "UPDATE account SET balance = :balance WHERE account_number = :account_nr";
         Map<String, Object> paramMap2 = new HashMap<>();
@@ -74,36 +83,97 @@ public class BankController3 {
         jdbcTemplate.update(sql2, paramMap2);
     }
 
+    // töötab postmanis
+    // http://localhost:8080/banker/withdrawMoney
+    @PostMapping("withdrawMoney")
+    public void withdrawMoney(@RequestBody Bank customer) {
+        String sql = "SELECT balance FROM account WHERE account_number = :account_nr";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("account_nr", customer.getAccount());
+        paramMap.put("amount", customer.getAmount());
+        BigDecimal balance = jdbcTemplate.queryForObject(sql, paramMap, BigDecimal.class);
 
-    // ei tööta
-    // http://localhost:8080/banker/createAccount
-    @PostMapping("createAccount")
-    public void createAccount(@RequestBody Bank customer) {
-        String sql = "INSERT INTO account (account_number, balance, customer_id) VALUES (:accountNumber, :balance, :customer_id)";
-        Map<String, Object> paramMap = new HashMap();
-        paramMap.put("accountNumber", customer.getAccount());
-        paramMap.put("balance", BigDecimal.ZERO);
-        paramMap.put("customer_id", customer.getCustomerId());
-        jdbcTemplate.update(sql, paramMap);
+        BigDecimal newBalance = balance.subtract(customer.getAmount());
+
+        if (newBalance.compareTo(BigDecimal.ZERO) < 0) {
+            throw new RuntimeException("Not enough money");
+        }
+
+        String sql2 = "UPDATE account SET balance = :balance WHERE account_number = :account_nr";
+        Map<String, Object> paramMap2 = new HashMap<>();
+        paramMap2.put("account_nr", customer.getAccount());
+        paramMap2.put("balance", newBalance);
+        jdbcTemplate.update(sql2, paramMap2);
     }
 
-    // ei tööta
-// http://localhost:8080/banker/createCustomerWithAccount
-    @PostMapping("createCustomerWithAccount")
-    public void createCustomerWithAccount(@RequestBody Bank customer) {
+    //töötab postmanis
+    // http://localhost:8080/banker/transferMoney
+    @PostMapping("transferMoney")
+    public void transferMoney(@RequestBody Bank customer) {
+
+        String sql1 = "SELECT balance FROM account WHERE account_number = :account_nr";
+        Map<String, Object> paramMap1 = new HashMap<>();
+        paramMap1.put("account_nr", customer.getFromAccount());
+        paramMap1.put("amount", customer.getAmount());
+        BigDecimal fromAccountBalance = jdbcTemplate.queryForObject(sql1, paramMap1, BigDecimal.class);
+
+        BigDecimal newFromAccountBalance = fromAccountBalance.subtract(customer.getAmount());
+
+        if (newFromAccountBalance.compareTo(BigDecimal.ZERO) < 0) {
+            throw new RuntimeException("Not enough money");
+        }
+
+        String sql2 = "UPDATE account SET balance = :balance WHERE account_number = :account_nr";
+        Map<String, Object> paramMap2 = new HashMap<>();
+        paramMap2.put("account_nr", customer.getFromAccount());
+        paramMap2.put("balance", newFromAccountBalance);
+        jdbcTemplate.update(sql2, paramMap2);
+
+        String sql3 = "SELECT balance FROM account WHERE account_number = :account_nr";
+        Map<String, Object> paramMap3 = new HashMap<>();
+        paramMap3.put("account_nr", customer.getToAccount());
+        paramMap3.put("amount", customer.getAmount());
+        BigDecimal toAccountBalance = jdbcTemplate.queryForObject(sql3, paramMap3, BigDecimal.class);
+
+        BigDecimal newToAccountBalance = toAccountBalance.add(customer.getAmount());
+
+        String sql4 = "UPDATE account SET balance = :balance WHERE account_number = :account_nr";
+        Map<String, Object> paramMap4 = new HashMap<>();
+        paramMap4.put("account_nr", customer.getToAccount());
+        paramMap4.put("balance", newToAccountBalance);
+        jdbcTemplate.update(sql4, paramMap4);
+    }
+}
+
+// ei tööta
+// http://localhost:8080/banker/createCustomerAndAccount
+   /* @PostMapping("createCustomerAndAccount")
+    public void createCustomerAndAccount(@RequestBody Bank customer) {
         String sql1 = "INSERT INTO customer (firstname, lastname, address) VALUES (:firstName, :lastName, :address)";
-        String sql2 = "INSERT INTO account (account_number, balance, customer_id) VALUES (:account_number, :balance, :customer_id)";
+        String sql2 = "SELECT customer_id FROM customer WHERE firstname, lastname, address = :firstName, :lastName, :address";
+        String sql3 = "INSERT INTO account (account_number, balance, customer_id_key) VALUES (:account_number, :balance, :customer_id_key)";
         Map<String, Object> paramMap1 = new HashMap();
         Map<String, Object> paramMap2 = new HashMap();
+        Map<String, Object> paramMap3 = new HashMap();
         paramMap1.put("firstName", customer.getFirstName());
         paramMap1.put("lastName", customer.getLastName());
         paramMap1.put("address", customer.getAddress());
+        jdbcTemplate.update(sql1, paramMap1);
+
         paramMap2.put("account_number", makeRandomString());
         paramMap2.put("balance", BigDecimal.ZERO);
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        jdbcTemplate.update(sql1, paramMap1);
-        jdbcTemplate.update(sql2, new MapSqlParameterSource(paramMap2), keyHolder);
+        int customer_id_key = jdbcTemplate.queryForObject(sql2, paramMap2, int.class);
+        paramMap2.put("customer_id_key", customer_id_key);
+        jdbcTemplate.update(sql2, paramMap2);
+
+        paramMap3.put("customer_id", customer_id_key);
+
+        jdbcTemplate.update(sql3, paramMap3);
+
+        //        KeyHolder keyHolder = new GeneratedKeyHolder();
+//        jdbcTemplate.update(sql2, new MapSqlParameterSource(paramMap2), keyHolder);
+
     }
+    */
 
 
-}
