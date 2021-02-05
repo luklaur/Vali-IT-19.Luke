@@ -71,7 +71,7 @@
     let postUrl = '/banker/depositMoney'
 
 
-    function createCustomer() {
+    function depositMoney() {
         let deposit = {
             account: document.getElementById("account_deposit").value,
             amount: document.getElementById("amount_deposit").value,
@@ -90,7 +90,7 @@
     }
 
     let element = document.getElementById("enter_deposit");
-    element.addEventListener("click", createCustomer)
+    element.addEventListener("click", depositMoney)
 
 
 </script>
