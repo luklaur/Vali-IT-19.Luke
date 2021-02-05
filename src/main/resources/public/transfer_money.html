@@ -37,7 +37,8 @@
             <ul id="services">
                 <li>
                     <h3>Insert the amount of money to to be transferred from a specific account to another.</h3>
-                    <p>Write the account numbers and the amount of money to be transferred on the corresponding fields.</p>
+                    <p>Write the account numbers and the amount of money to be transferred on the corresponding
+                        fields.</p>
                 </li>
             </ul>
         </article>
@@ -59,7 +60,7 @@
                         <input id="amount_transfer" type="number" placeholder="Amount">
                     </div>
                     <br>
-                    <button id="enter_transfer" class="button_1" type="submit">Enter</button>
+                    <button id="enter_transfer" class="button_1" type="button">Enter</button>
                 </form>
             </div>
         </aside>
@@ -72,14 +73,14 @@
 
 <script>
 
-    let postUrl = '/banker/createCustomer'
+    let postUrl = '/banker/transferMoney'
 
 
-    function createCustomer() {
-        let customer = {
-            firstName: document.getElementById("firstName").value,
-            lastName: document.getElementById("lastName").value,
-            address: document.getElementById("address").value,
+    function transferMoney() {
+        let transfer = {
+            fromAccount: document.getElementById("from_account_transfer").value,
+            toAccount: document.getElementById("to_account_transfer").value,
+            amount: document.getElementById("amount_transfer").value,
         }
         fetch(postUrl,
             {
@@ -87,15 +88,15 @@
                 headers: {
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify(customer)
+                body: JSON.stringify(transfer)
             })
         /*.then(result => result.text())
         .then(function (result) {
         });*/
     }
 
-    let element = document.getElementById("enter_customer");
-    element.addEventListener("click", createCustomer)
+    let element = document.getElementById("enter_transfer");
+    element.addEventListener("click", transferMoney)
 
 
 </script>
