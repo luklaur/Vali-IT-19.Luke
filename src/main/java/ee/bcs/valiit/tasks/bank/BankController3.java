@@ -46,6 +46,7 @@ public class BankController3 {
     // http://localhost:8080/banker/createAccount
     @PostMapping("createAccount")
     public void createAccount(@RequestBody Bank customer) {
+//        String sql = "INSERT INTO account (account_number, balance, customer_id_key) VALUES (:account_number, :balance, :customerid)";
         String sql = "INSERT INTO account (account_number, balance, customer_id_key) VALUES (:account_number, :balance, :customerid)";
         Map<String, Object> paramMap = new HashMap();
         paramMap.put("account_number", customer.getAccount());
@@ -143,37 +144,34 @@ public class BankController3 {
         paramMap4.put("balance", newToAccountBalance);
         jdbcTemplate.update(sql4, paramMap4);
     }
-}
 
-// ei tööta
+
+    // ei tööta
 // http://localhost:8080/banker/createCustomerAndAccount
-   /* @PostMapping("createCustomerAndAccount")
+  /*  @PostMapping("createCustomerAndAccount")
     public void createCustomerAndAccount(@RequestBody Bank customer) {
         String sql1 = "INSERT INTO customer (firstname, lastname, address) VALUES (:firstName, :lastName, :address)";
-        String sql2 = "SELECT customer_id FROM customer WHERE firstname, lastname, address = :firstName, :lastName, :address";
-        String sql3 = "INSERT INTO account (account_number, balance, customer_id_key) VALUES (:account_number, :balance, :customer_id_key)";
+        String sql2 = "INSERT INTO account (account_number, balance, customer_id_key) VALUES (:account_number, :balance, :customer_id_key)";
         Map<String, Object> paramMap1 = new HashMap();
         Map<String, Object> paramMap2 = new HashMap();
-        Map<String, Object> paramMap3 = new HashMap();
         paramMap1.put("firstName", customer.getFirstName());
         paramMap1.put("lastName", customer.getLastName());
         paramMap1.put("address", customer.getAddress());
         jdbcTemplate.update(sql1, paramMap1);
 
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
+
+        int keyHolder = jdbcTemplate.queryForObject(sql2, paramMap2, int.class);
+
+        jdbcTemplate.update(sql2, new MapSqlParameterSource(paramMap2), keyHolder);
+
         paramMap2.put("account_number", makeRandomString());
         paramMap2.put("balance", BigDecimal.ZERO);
-        int customer_id_key = jdbcTemplate.queryForObject(sql2, paramMap2, int.class);
-        paramMap2.put("customer_id_key", customer_id_key);
+        paramMap2.put("customer_id_key", keyHolder);
         jdbcTemplate.update(sql2, paramMap2);
 
-        paramMap3.put("customer_id", customer_id_key);
-
-        jdbcTemplate.update(sql3, paramMap3);
-
-        //        KeyHolder keyHolder = new GeneratedKeyHolder();
-//        jdbcTemplate.update(sql2, new MapSqlParameterSource(paramMap2), keyHolder);
-
-    }
-    */
 
 
+    }*/
+}
