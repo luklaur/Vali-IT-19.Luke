@@ -64,14 +64,12 @@
 
 <script>
 
-    let postUrl = '/banker/createCustomer'
+    let postUrl = '/banker/accountBalance'
 
 
     function createCustomer() {
-        let customer = {
-            firstName: document.getElementById("firstName").value,
-            lastName: document.getElementById("lastName").value,
-            address: document.getElementById("address").value,
+        let balance = {
+            account: document.getElementById("account_nr_balance").value,
         }
         fetch(postUrl,
             {
@@ -79,14 +77,14 @@
                 headers: {
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify(customer)
+                body: JSON.stringify(balance)
             })
         /*.then(result => result.text())
         .then(function (result) {
         });*/
     }
 
-    let element = document.getElementById("enter_customer");
+    let element = document.getElementById("enter_balance");
     element.addEventListener("click", createCustomer)
 
 
